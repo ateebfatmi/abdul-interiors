@@ -47,6 +47,7 @@
   const dialogImage = dialog.querySelector('img');
   const dialogTitle = dialog.querySelector('h2');
   const dialogCopy = dialog.querySelector('.dialog-copy');
+  const dialogSource = dialog.querySelector('.dialog-source');
   let lastProjectTrigger = null;
   cards.forEach((card) => card.addEventListener('click', () => {
     lastProjectTrigger = card;
@@ -54,10 +55,11 @@
     dialogImage.alt = card.querySelector('img').alt;
     dialogTitle.textContent = card.dataset.title;
     dialogCopy.textContent = card.dataset.copy;
+    dialogSource.href = card.dataset.url;
     dialog.showModal();
   }));
   dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-  dialog.querySelector('a').addEventListener('click', () => dialog.close());
+  dialog.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => dialog.close()));
   dialog.addEventListener('click', (event) => {
     const bounds = dialog.getBoundingClientRect();
     const outside = event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
@@ -102,7 +104,7 @@
       return;
     }
     const data = new FormData(form);
-    const summary = `New Abdul Interiors enquiry\n\nName: ${data.get('name')}\nPhone: ${data.get('phone')}\nEmail: ${data.get('email') || 'Not provided'}\nProject: ${data.get('project')}\nPreferred contact: ${data.get('contactMethod')}\n\n${data.get('message')}`;
+    const summary = `New Abdul Interiors furniture enquiry\n\nName: ${data.get('name')}\nPhone: ${data.get('phone')}\nEmail: ${data.get('email') || 'Not provided'}\nFurniture type: ${data.get('project')}\nPreferred contact: ${data.get('contactMethod')}\n\n${data.get('message')}`;
     status.classList.add('show');
     status.innerHTML = `<strong>Your enquiry draft is ready.</strong><p>This demo does not send your details. Copy the draft, then contact Abdul Interiors on Instagram.</p><pre></pre><button type="button" class="copy-enquiry">Copy enquiry text</button> · <a href="${config.instagramUrl}" target="_blank" rel="noopener">Open Instagram ↗</a>`;
     status.querySelector('pre').textContent = summary;
