@@ -1,19 +1,18 @@
 (() => {
-  const config = window.ABDUL_INTERIORS_CONFIG || {};
   const header = document.querySelector('#site-header');
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('#mobile-nav');
 
-  const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 32);
+  const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 30);
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
   menuToggle.addEventListener('click', () => {
-    const open = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', String(!open));
-    menuToggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
-    mobileNav.hidden = open;
-    document.body.classList.toggle('menu-open', !open);
+    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+    mobileNav.hidden = isOpen;
+    document.body.classList.toggle('menu-open', !isOpen);
   });
   mobileNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
     menuToggle.setAttribute('aria-expanded', 'false');
@@ -22,97 +21,105 @@
     document.body.classList.remove('menu-open');
   }));
 
-  const revealObserver = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
   const filters = document.querySelectorAll('.filter');
-  const cards = document.querySelectorAll('.project-card');
+  const productCards = document.querySelectorAll('.product-card');
   filters.forEach((button) => button.addEventListener('click', () => {
-    const category = button.dataset.filter;
+    const filter = button.dataset.filter;
     filters.forEach((item) => {
-      item.classList.toggle('active', item === button);
-      item.setAttribute('aria-pressed', String(item === button));
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-pressed', String(active));
     });
-    cards.forEach((card) => { card.hidden = category !== 'all' && card.dataset.category !== category; });
+    productCards.forEach((card) => {
+      card.hidden = filter !== 'all' && card.dataset.category !== filter;
+    });
   }));
 
-  const dialog = document.querySelector('#project-dialog');
+  const products = {
+    'signature-six': {
+      title: 'The Signature Six',
+      image: 'assets/instagram/07-dining-photo.jpg',
+      alt: 'Premium six-seater dining set',
+      copy: 'A six-seater statement dining set with sculpted, high-back chairs and a bright stone-look tabletop.',
+      source: 'https://www.instagram.com/abdulinteriors21/p/DdwL6ngTDAo/'
+    },
+    'cane-curve': {
+      title: 'The Cane Curve',
+      image: 'assets/instagram/02-bedroom-chair.jpg',
+      alt: 'Curved cane-back wooden chair',
+      copy: 'A curved wooden chair in the workshop, shaped with an expressive frame and hand-woven cane back.',
+      source: 'https://www.instagram.com/abdulinteriors21/reel/DecbwWnzP7c/'
+    },
+    'carved-table': {
+      title: 'The Carved Table',
+      image: 'assets/instagram/10-wooden-dining-set.jpg',
+      alt: 'Carved wooden dining set',
+      copy: 'A richly carved wooden dining table paired with high-back upholstered chairs.',
+      source: 'https://www.instagram.com/abdulinteriors21/reel/DdMghnmzBo8/'
+    },
+    'sculpted-chair': {
+      title: 'The Sculpted Chair',
+      image: 'assets/instagram/04-dining-set.jpg',
+      alt: 'Sculpted wooden dining chair in progress',
+      copy: 'A fluid chair form taking shape in the atelier before upholstery and final finishing.',
+      source: 'https://www.instagram.com/abdulinteriors21/reel/DeTOYTtTJ5K/'
+    },
+    'hand-finished': {
+      title: 'Made by Hand',
+      image: 'assets/instagram/11-dining-furniture.jpg',
+      alt: 'Furniture being finished by hand',
+      copy: 'An authentic view of sculptural furniture receiving its hand-finished detail in the workshop.',
+      source: 'https://www.instagram.com/abdulinteriors21/reel/DdI02CIz9fo/'
+    }
+  };
+  const dialog = document.querySelector('#product-dialog');
   const dialogImage = dialog.querySelector('img');
   const dialogTitle = dialog.querySelector('h2');
   const dialogCopy = dialog.querySelector('.dialog-copy');
   const dialogSource = dialog.querySelector('.dialog-source');
-  let lastProjectTrigger = null;
-  cards.forEach((card) => card.addEventListener('click', () => {
-    lastProjectTrigger = card;
-    dialogImage.src = card.dataset.image;
-    dialogImage.alt = card.querySelector('img').alt;
-    dialogTitle.textContent = card.dataset.title;
-    dialogCopy.textContent = card.dataset.copy;
-    dialogSource.href = card.dataset.url;
+  let lastTrigger = null;
+  document.querySelectorAll('[data-open-product]').forEach((button) => button.addEventListener('click', () => {
+    const product = products[button.dataset.openProduct];
+    if (!product) return;
+    lastTrigger = button;
+    dialogImage.src = product.image;
+    dialogImage.alt = product.alt;
+    dialogTitle.textContent = product.title;
+    dialogCopy.textContent = product.copy;
+    dialogSource.href = product.source;
     dialog.showModal();
   }));
   dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
   dialog.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => dialog.close()));
   dialog.addEventListener('click', (event) => {
-    const bounds = dialog.getBoundingClientRect();
-    const outside = event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
-    if (outside) dialog.close();
+    const box = dialog.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
   });
-  dialog.addEventListener('close', () => lastProjectTrigger?.focus());
+  dialog.addEventListener('close', () => lastTrigger?.focus());
 
-  const whatsappButton = document.querySelector('#whatsapp-button');
-  const isValidWhatsapp = /^\d{8,15}$/.test(String(config.whatsappNumber || '').replace(/\D/g, ''));
-  if (isValidWhatsapp) {
-    const number = String(config.whatsappNumber).replace(/\D/g, '');
-    whatsappButton.setAttribute('aria-label', 'Enquire with Abdul Interiors on WhatsApp');
-    whatsappButton.addEventListener('click', () => window.open(`https://wa.me/${number}?text=${encodeURIComponent(config.whatsappMessage)}`, '_blank', 'noopener'));
-  } else {
-    whatsappButton.title = 'WhatsApp number will be added once confirmed';
-    whatsappButton.addEventListener('click', () => document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' }));
-  }
-
-  const form = document.querySelector('#contact-form');
-  const status = form.querySelector('.form-status');
-  const validators = {
-    name: (value) => value.trim().length >= 2 ? '' : 'Please enter your name.',
-    phone: (value) => value.replace(/\D/g, '').length >= 8 ? '' : 'Please enter a valid phone or WhatsApp number.',
-    email: (value) => !value || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Please enter a valid email address.',
-    project: (value) => value ? '' : 'Please select a project type.',
-    message: (value) => value.trim().length >= 10 ? '' : 'Please add a little more detail (at least 10 characters).',
-  };
-  const validateField = (field) => {
-    const error = validators[field.name]?.(field.value) || '';
-    field.classList.toggle('invalid', Boolean(error));
-    field.setAttribute('aria-invalid', String(Boolean(error)));
-    field.closest('label')?.querySelector('.field-error')?.replaceChildren(document.createTextNode(error));
-    return !error;
-  };
-  Object.keys(validators).forEach((name) => form.elements[name].addEventListener('blur', (event) => validateField(event.target)));
-  form.addEventListener('submit', async (event) => {
+  const membershipForm = document.querySelector('#membership-form');
+  const membershipStatus = membershipForm.querySelector('.membership-status');
+  membershipForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const fields = Object.keys(validators).map((name) => form.elements[name]);
-    const valid = fields.map(validateField).every(Boolean);
-    if (!valid) {
-      fields.find((field) => field.getAttribute('aria-invalid') === 'true')?.focus();
+    const name = membershipForm.elements.memberName.value.trim();
+    const contact = membershipForm.elements.memberContact.value.trim();
+    if (name.length < 2 || contact.length < 5) {
+      membershipStatus.textContent = 'Please add your name and a valid phone number or email.';
+      membershipStatus.classList.add('show');
       return;
     }
-    const data = new FormData(form);
-    const summary = `New Abdul Interiors furniture enquiry\n\nName: ${data.get('name')}\nPhone: ${data.get('phone')}\nEmail: ${data.get('email') || 'Not provided'}\nFurniture type: ${data.get('project')}\nPreferred contact: ${data.get('contactMethod')}\n\n${data.get('message')}`;
-    status.classList.add('show');
-    status.innerHTML = `<strong>Your enquiry draft is ready.</strong><p>This demo does not send your details. Copy the draft, then contact Abdul Interiors on Instagram.</p><pre></pre><button type="button" class="copy-enquiry">Copy enquiry text</button> · <a href="${config.instagramUrl}" target="_blank" rel="noopener">Open Instagram ↗</a>`;
-    status.querySelector('pre').textContent = summary;
-    status.querySelector('.copy-enquiry').addEventListener('click', async (e) => {
-      await navigator.clipboard.writeText(summary);
-      e.currentTarget.textContent = 'Copied';
-    });
-    status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    membershipStatus.innerHTML = 'Your private-access request is ready. This demo does not send details—please call <a href="tel:9012930381">90 1293 0381</a> or message <a href="https://www.instagram.com/abdulinteriors21/" target="_blank" rel="noopener">@abdulinteriors21</a>.';
+    membershipStatus.classList.add('show');
   });
 
   document.querySelector('#year').textContent = new Date().getFullYear();

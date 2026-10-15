@@ -2,216 +2,140 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#252521" />
-    <title>Abdul Interiors | Custom Furniture & Dining Sets</title>
-    <meta name="description" content="Abdul Interiors creates custom furniture, from royal sofas and cozy beds to premium dining sets and handcrafted chairs." />
-    <meta property="og:title" content="Abdul Interiors | Custom furniture made for your home" />
-    <meta property="og:description" content="Royal sofas, cozy beds, dining furniture and custom-made pieces from Abdul Interiors." />
-    <meta property="og:type" content="website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#151512" />
+    <title>Abdul Interiors | Furniture of Distinction</title>
+    <meta name="description" content="Explore statement dining sets, sculptural seating and custom furniture by Abdul Interiors." />
+    <meta property="og:title" content="Abdul Interiors | Furniture of Distinction" />
+    <meta property="og:description" content="Statement furniture, shaped by hand and made to order." />
     <meta property="og:image" content="assets/instagram/07-dining-photo.jpg" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23252521'/%3E%3Cpath d='M18 46 30 17h5l12 29h-7l-2.6-7H26.5L24 46h-6Zm10.4-13h7.1L32 23.5 28.4 33Z' fill='%23F7F4EE'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
     <script src="config.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+
     <header class="site-header" id="site-header">
-      <a class="wordmark" href="#home" aria-label="Abdul Interiors home">
-        <span>ABDUL</span><span>INTERIORS</span>
-      </a>
+      <a class="brand" href="#home" aria-label="Abdul Interiors home"><span>ABDUL</span><small>INTERIORS</small></a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#work">Our Work</a><a href="#contact">Contact</a>
+        <a href="#collection">Collection</a><a href="#story">Our story</a><a href="#craft">Craft</a><a href="#atelier">Atelier</a>
       </nav>
-      <a class="header-cta" href="#contact">Make an enquiry <span aria-hidden="true">↗</span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
-        <span></span><span></span>
-      </button>
-      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
-        <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#work">Our Work</a><a href="#contact">Contact</a>
-        <a class="mobile-instagram" href="https://www.instagram.com/abdulinteriors21/" target="_blank" rel="noopener">Instagram ↗</a>
+      <a class="header-action" href="#membership">Private access <span>↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span><span></span></button>
+      <nav class="mobile-nav glass-panel" id="mobile-nav" aria-label="Mobile navigation" hidden>
+        <a href="#collection">Collection</a><a href="#story">Our story</a><a href="#craft">Craft</a><a href="#atelier">Atelier</a><a href="#membership">Private access</a>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" id="home" aria-labelledby="hero-title">
-        <picture><source media="(max-width: 700px)" srcset="assets/instagram/02-bedroom-chair.jpg" /><img class="hero-image real-hero" src="assets/instagram/07-dining-photo.jpg" alt="Custom furniture made by Abdul Interiors" fetchpriority="high" /></picture>
-        <div class="hero-shade"></div>
-        <div class="hero-content reveal">
-          <p class="eyebrow light">Custom furniture · Made to order</p>
-          <h1 id="hero-title">Furniture made<br />to feel <em>at home.</em></h1>
-          <p class="hero-copy">From royal sofas and cozy beds to distinctive dining sets—furniture created with character for your home.</p>
-          <div class="hero-actions">
-            <a class="button button-light" href="#contact">Make an enquiry <span>↗</span></a>
-            <a class="text-link light-link" href="#work">Explore our work <span>↓</span></a>
-          </div>
+        <picture class="hero-media"><source media="(max-width: 700px)" srcset="assets/instagram/02-bedroom-chair.jpg" /><img src="assets/instagram/07-dining-photo.jpg" alt="Statement dining furniture by Abdul Interiors" fetchpriority="high" /></picture>
+        <div class="hero-vignette"></div>
+        <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+        <div class="hero-content">
+          <p class="kicker light">The signature collection · Made to order</p>
+          <h1 id="hero-title">Furniture of<br /><em>distinction.</em></h1>
+          <p class="hero-copy">Sculptural dining, expressive seating and custom pieces—crafted to become the centre of a room.</p>
+          <div class="hero-actions"><a class="button button-light" href="#collection">Explore collection <span>↗</span></a><a class="text-link light" href="#story">Discover the house <span>↓</span></a></div>
         </div>
-        <div class="hero-side-note" aria-hidden="true">Abdul Interiors · Custom furniture</div>
-        <a class="scroll-cue" href="#about"><span></span> Scroll to discover</a>
+        <aside class="hero-feature glass-panel" aria-label="Featured piece">
+          <span class="micro">Featured · Dining</span><strong>The Signature Six</strong><p>High-back sculpted seating paired with a luminous tabletop.</p><button class="ghost-link" type="button" data-open-product="signature-six">View the piece <span>↗</span></button>
+        </aside>
+        <a class="scroll-mark" href="#collection"><span></span>Scroll to discover</a>
       </section>
 
-      <section class="intro section-pad" id="about" aria-labelledby="intro-title">
-        <div class="intro-visual reveal">
-          <img src="assets/instagram/02-bedroom-chair.jpg" alt="Cane-back wooden chair being handcrafted in the Abdul Interiors workshop" loading="lazy" />
-          <div class="image-caption"><span>01</span><p>Craft in progress<br />From @abdulinteriors21</p></div>
-        </div>
-        <div class="intro-copy reveal">
-          <p class="eyebrow">Furniture with a personal touch</p>
-          <h2 id="intro-title">Made for your home. Shaped by <em>craft.</em></h2>
-          <p class="lead">Abdul Interiors is a furniture shop creating pieces for the way people gather, rest and live.</p>
-          <p>The official collection spans royal sofas, cozy beds, dining furniture and handcrafted seating. Custom orders are welcomed, with styles and finishes discussed around what suits your home.</p>
-          <a class="text-link" href="#craft">See the workshop <span>↗</span></a>
-        </div>
-      </section>
+      <section class="marquee" aria-label="Brand values"><div>MADE TO ORDER <i>✦</i> SCULPTURAL COMFORT <i>✦</i> HAND-FINISHED <i>✦</i> DISTINCTIVE LIVING <i>✦</i> MADE TO ORDER <i>✦</i> SCULPTURAL COMFORT</div></section>
 
-      <section class="services section-pad" id="services" aria-labelledby="services-title">
-        <div class="section-heading reveal">
-          <p class="eyebrow">What we make</p>
-          <h2 id="services-title">Furniture with presence,<br /><em>made for real homes.</em></h2>
-          <p class="section-intro">Based on the products and custom work shared by Abdul Interiors on its official Instagram account.</p>
+      <section class="collection section-pad" id="collection" aria-labelledby="collection-title">
+        <header class="section-head reveal"><div><p class="kicker">The collection</p><h2 id="collection-title">Objects with<br /><em>presence.</em></h2></div><p>Authentic pieces and workshop studies from Abdul Interiors. Each design is discussed directly for availability, dimensions and custom finishes.</p></header>
+        <div class="collection-toolbar reveal" aria-label="Filter collection">
+          <button class="filter active" type="button" data-filter="all" aria-pressed="true">All pieces</button><button class="filter" type="button" data-filter="dining" aria-pressed="false">Dining</button><button class="filter" type="button" data-filter="seating" aria-pressed="false">Seating</button><button class="filter" type="button" data-filter="atelier" aria-pressed="false">Atelier</button>
         </div>
-        <div class="service-list" role="list">
-          <article class="service-row reveal" role="listitem"><span class="service-number">01</span><h3>Dining Sets</h3><p>Statement dining tables and coordinated chairs, including polished and upholstered designs.</p><a href="#contact" aria-label="Enquire about dining sets">Enquire <span>↗</span></a></article>
-          <article class="service-row reveal" role="listitem"><span class="service-number">02</span><h3>Sofas &amp; Seating</h3><p>Royal-style sofas and expressive seating made to bring comfort and presence to a room.</p><a href="#contact" aria-label="Enquire about sofas and seating">Enquire <span>↗</span></a></article>
-          <article class="service-row reveal" role="listitem"><span class="service-number">03</span><h3>Beds</h3><p>Cozy bed designs created as a strong, comfortable centrepiece for the bedroom.</p><a href="#contact" aria-label="Enquire about beds">Enquire <span>↗</span></a></article>
-          <article class="service-row reveal" role="listitem"><span class="service-number">04</span><h3>Accent Chairs</h3><p>Distinctive bedroom, dressing and reading chairs with upholstered or cane details.</p><a href="#contact" aria-label="Enquire about accent chairs">Enquire <span>↗</span></a></article>
-          <article class="service-row reveal" role="listitem"><span class="service-number">05</span><h3>Handcrafted Woodwork</h3><p>Furniture shaped, carved, polished and finished by hand in the workshop.</p><a href="#contact" aria-label="Enquire about handcrafted woodwork">Enquire <span>↗</span></a></article>
-          <article class="service-row reveal" role="listitem"><span class="service-number">06</span><h3>Custom Orders</h3><p>Custom furniture enquiries are welcomed, with the piece and finish discussed directly.</p><a href="#contact" aria-label="Enquire about a custom furniture order">Enquire <span>↗</span></a></article>
-        </div>
-      </section>
-
-      <section class="work section-pad" id="work" aria-labelledby="work-title">
-        <div class="work-heading reveal">
-          <div><p class="eyebrow light">From the workshop</p><h2 id="work-title">Real pieces.<br /><em>Real craftsmanship.</em></h2></div>
-          <p>Authentic workshop and product imagery from the official @abdulinteriors21 Instagram account.</p>
-        </div>
-        <div class="filters" role="group" aria-label="Filter inspiration by room">
-          <button class="filter active" data-filter="all" aria-pressed="true">All work</button>
-          <button class="filter" data-filter="dining" aria-pressed="false">Dining</button>
-          <button class="filter" data-filter="seating" aria-pressed="false">Seating</button>
-          <button class="filter" data-filter="craft" aria-pressed="false">In the workshop</button>
-        </div>
-        <div class="project-grid" aria-live="polite">
-          <button class="project-card project-wide reveal" data-category="dining" data-title="Premium Six-Seater" data-image="assets/instagram/07-dining-photo.jpg" data-url="https://www.instagram.com/abdulinteriors21/p/DdwL6ngTDAo/" data-copy="A premium six-seater dining set with sculpted wood-grain chairs and a bright stone-look tabletop." aria-label="Open Premium Six-Seater dining set">
-            <img src="assets/instagram/07-dining-photo.jpg" alt="Premium six-seater dining set by Abdul Interiors" loading="lazy" /><span class="project-meta"><span><small>Dining · Featured piece</small>Premium Six-Seater</span><b>↗</b></span>
-          </button>
-          <button class="project-card project-tall reveal" data-category="seating" data-title="Cane-Back Chair" data-image="assets/instagram/02-bedroom-chair.jpg" data-url="https://www.instagram.com/abdulinteriors21/reel/DecbwWnzP7c/" data-copy="A curved wooden chair in the workshop, finished with a hand-woven cane back." aria-label="Open Cane-Back Chair">
-            <img src="assets/instagram/02-bedroom-chair.jpg" alt="Cane-back wooden chair being made by Abdul Interiors" loading="lazy" /><span class="project-meta"><span><small>Seating · In progress</small>Cane-Back Chair</span><b>↗</b></span>
-          </button>
-          <button class="project-card project-tall reveal" data-category="craft" data-title="Workshop Finishing" data-image="assets/instagram/03-craft-detail.jpg" data-url="https://www.instagram.com/abdulinteriors21/reel/DeW7wE9znE8/" data-copy="An authentic view inside the Abdul Interiors workshop as seating pieces are finished by hand." aria-label="Open Workshop Finishing">
-            <img src="assets/instagram/03-craft-detail.jpg" alt="Craftspeople finishing chairs in the Abdul Interiors workshop" loading="lazy" /><span class="project-meta"><span><small>Craft · Workshop</small>Workshop Finishing</span><b>↗</b></span>
-          </button>
-          <button class="project-card project-wide reveal" data-category="dining" data-title="Carved Dining Set" data-image="assets/instagram/10-wooden-dining-set.jpg" data-url="https://www.instagram.com/abdulinteriors21/reel/DdMghnmzBo8/" data-copy="A richly carved wooden dining table paired with high-back upholstered chairs." aria-label="Open Carved Dining Set">
-            <img src="assets/instagram/10-wooden-dining-set.jpg" alt="Carved wooden dining set by Abdul Interiors" loading="lazy" /><span class="project-meta"><span><small>Dining · Finished piece</small>Carved Dining Set</span><b>↗</b></span>
-          </button>
-          <button class="project-card project-wide reveal" data-category="seating" data-title="Sculpted Dining Chair" data-image="assets/instagram/04-dining-set.jpg" data-url="https://www.instagram.com/abdulinteriors21/reel/DeTOYTtTJ5K/" data-copy="A sculpted chair form taking shape before upholstery and final finishing." aria-label="Open Sculpted Dining Chair">
-            <img src="assets/instagram/04-dining-set.jpg" alt="Sculpted dining chair being made in the workshop" loading="lazy" /><span class="project-meta"><span><small>Seating · In progress</small>Sculpted Dining Chair</span><b>↗</b></span>
-          </button>
-          <button class="project-card project-tall reveal" data-category="craft" data-title="Furniture in the Making" data-image="assets/instagram/11-dining-furniture.jpg" data-url="https://www.instagram.com/abdulinteriors21/reel/DdI02CIz9fo/" data-copy="Hand-finishing work on sculptural dining furniture inside the workshop." aria-label="Open Furniture in the Making">
-            <img src="assets/instagram/11-dining-furniture.jpg" alt="Craftsperson hand-finishing dining furniture" loading="lazy" /><span class="project-meta"><span><small>Craft · Workshop</small>Furniture in the Making</span><b>↗</b></span>
-          </button>
+        <div class="product-grid">
+          <article class="product-card product-hero reveal" data-category="dining">
+            <button class="product-image" type="button" data-open-product="signature-six"><img src="assets/instagram/07-dining-photo.jpg" alt="Premium six-seater dining set" /><span class="glass-tag">Featured</span><span class="image-arrow">↗</span></button>
+            <div class="product-meta"><div><small>Dining · Six seats</small><h3>The Signature Six</h3></div><button type="button" data-open-product="signature-six">Enquire</button></div>
+          </article>
+          <article class="product-card reveal" data-category="seating">
+            <button class="product-image" type="button" data-open-product="cane-curve"><img src="assets/instagram/02-bedroom-chair.jpg" alt="Curved cane-back wooden chair" /><span class="glass-tag">In the atelier</span><span class="image-arrow">↗</span></button>
+            <div class="product-meta"><div><small>Seating · Cane</small><h3>The Cane Curve</h3></div><button type="button" data-open-product="cane-curve">Enquire</button></div>
+          </article>
+          <article class="product-card reveal" data-category="dining">
+            <button class="product-image" type="button" data-open-product="carved-table"><img src="assets/instagram/10-wooden-dining-set.jpg" alt="Carved wooden dining set with upholstered chairs" /><span class="glass-tag">Statement dining</span><span class="image-arrow">↗</span></button>
+            <div class="product-meta"><div><small>Dining · Carved wood</small><h3>The Carved Table</h3></div><button type="button" data-open-product="carved-table">Enquire</button></div>
+          </article>
+          <article class="product-card product-wide reveal" data-category="atelier">
+            <button class="product-image" type="button" data-open-product="sculpted-chair"><img src="assets/instagram/04-dining-set.jpg" alt="Sculpted wooden chair taking shape in the workshop" /><span class="glass-tag">Form study</span><span class="image-arrow">↗</span></button>
+            <div class="product-meta"><div><small>Atelier · Work in progress</small><h3>The Sculpted Chair</h3></div><button type="button" data-open-product="sculpted-chair">Enquire</button></div>
+          </article>
+          <article class="product-card reveal" data-category="atelier">
+            <button class="product-image" type="button" data-open-product="hand-finished"><img src="assets/instagram/11-dining-furniture.jpg" alt="Craftsperson hand-finishing furniture" /><span class="glass-tag">Hand-finished</span><span class="image-arrow">↗</span></button>
+            <div class="product-meta"><div><small>Atelier · Finish</small><h3>Made by Hand</h3></div><button type="button" data-open-product="hand-finished">Enquire</button></div>
+          </article>
         </div>
       </section>
 
-      <section class="reels section-pad" id="reels" aria-labelledby="reels-title">
-        <div class="reels-heading reveal">
-          <p class="eyebrow">Watch the work</p>
-          <h2 id="reels-title">Inside the <em>workshop.</em></h2>
-          <p>Real reels shared by Abdul Interiors—showing furniture forms, finishes and work in progress.</p>
-        </div>
-        <div class="reels-grid">
-          <iframe src="https://www.instagram.com/reel/DecbwWnzP7c/embed/" title="Abdul Interiors cane-back chair reel" loading="lazy" allowtransparency="true" allowfullscreen></iframe>
-          <iframe src="https://www.instagram.com/reel/DeW7wE9znE8/embed/" title="Abdul Interiors workshop reel" loading="lazy" allowtransparency="true" allowfullscreen></iframe>
-          <iframe src="https://www.instagram.com/reel/DeTOYTtTJ5K/embed/" title="Abdul Interiors dining chair reel" loading="lazy" allowtransparency="true" allowfullscreen></iframe>
-        </div>
-        <a class="text-link reels-link" href="https://www.instagram.com/abdulinteriors21/reels/" target="_blank" rel="noopener">See every reel on Instagram <span>↗</span></a>
+      <section class="story" id="story" aria-labelledby="story-title">
+        <div class="story-image reveal"><img src="assets/instagram/12-dining-chairs.jpg" alt="Dining chairs being crafted in the Abdul Interiors workshop" /><div class="glass-caption"><span>01</span><p>Inside the Abdul Interiors workshop</p></div></div>
+        <div class="story-copy section-pad reveal"><p class="kicker">The house of Abdul Interiors</p><h2 id="story-title">Designed to be<br /><em>remembered.</em></h2><p class="lead">Abdul Interiors is a furniture shop creating royal sofas, cozy beds, dining furniture and handcrafted seating.</p><p>The collection celebrates bold silhouettes, carved detail and finishes with character. Custom orders invite each client to shape the piece around their own home.</p><a class="text-link" href="#craft">See how it is made <span>↘</span></a></div>
       </section>
 
-      <section class="philosophy" id="craft" aria-labelledby="philosophy-title">
-        <div class="philosophy-image"><img src="assets/instagram/12-dining-chairs.jpg" alt="Dining chairs in progress inside the Abdul Interiors workshop" loading="lazy" /></div>
-        <div class="philosophy-copy section-pad reveal">
-          <p class="eyebrow">How each piece takes shape</p>
-          <h2 id="philosophy-title">Made by hand, finished with <em>character.</em></h2>
-          <div class="principles">
-            <div><span>01</span><h3>Shaped in the workshop</h3><p>Frames and furniture forms are built and refined by hand.</p></div>
-            <div><span>02</span><h3>Carved details</h3><p>Expressive curves, motifs and profiles give each design its identity.</p></div>
-            <div><span>03</span><h3>Upholstery &amp; comfort</h3><p>Seating is layered and upholstered for its intended look and use.</p></div>
-            <div><span>04</span><h3>Polish &amp; finish</h3><p>Colour, sheen and final detailing complete the character of the piece.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="process section-pad" aria-labelledby="process-title">
-        <div class="process-head reveal"><p class="eyebrow">Custom orders welcomed</p><h2 id="process-title">From your idea to a piece with <em>presence.</em></h2></div>
-        <ol class="process-grid">
-          <li class="reveal"><span>01</span><h3>Share what you need</h3><p>Tell Abdul Interiors whether you are looking for a dining set, sofa, bed, chair or custom piece.</p></li>
-          <li class="reveal"><span>02</span><h3>Discuss the style</h3><p>Talk through the design, size, upholstery and finish that suit your home.</p></li>
-          <li class="reveal"><span>03</span><h3>Workshop crafting</h3><p>The furniture form is shaped, detailed, upholstered and polished in the workshop.</p></li>
-          <li class="reveal"><span>04</span><h3>Confirm the order</h3><p>Final order and delivery details are discussed directly with Abdul Interiors.</p></li>
+      <section class="craft section-pad" id="craft" aria-labelledby="craft-title">
+        <header class="craft-head reveal"><p class="kicker light">The art of making</p><h2 id="craft-title">From raw form<br />to <em>refined object.</em></h2></header>
+        <div class="craft-visual reveal"><img src="assets/instagram/03-craft-detail.jpg" alt="Furniture being finished by hand in the workshop" /><div class="craft-glass glass-panel"><span>Hand-finished</span><p>Every curve, surface and detail passes through the workshop before the piece is complete.</p></div></div>
+        <ol class="craft-steps">
+          <li class="reveal"><span>01</span><div><h3>Form</h3><p>A distinctive silhouette begins the piece.</p></div></li>
+          <li class="reveal"><span>02</span><div><h3>Detail</h3><p>Carving and joinery give the design its identity.</p></div></li>
+          <li class="reveal"><span>03</span><div><h3>Comfort</h3><p>Upholstery adds softness to the sculpted structure.</p></div></li>
+          <li class="reveal"><span>04</span><div><h3>Finish</h3><p>Polish and surface detail complete the character.</p></div></li>
         </ol>
       </section>
 
-      <section class="why section-pad" aria-labelledby="why-title">
-        <div class="why-title reveal"><p class="eyebrow light">The Abdul Interiors approach</p><h2 id="why-title">Furniture with character.<br /><em>Made more personal.</em></h2></div>
-        <div class="why-grid">
-          <article class="reveal"><span>01</span><h3>Custom options</h3><p>Custom orders are available for customers looking for something more personal.</p></article>
-          <article class="reveal"><span>02</span><h3>Handmade detail</h3><p>Workshop footage shows carving, finishing and upholstery carried out by hand.</p></article>
-          <article class="reveal"><span>03</span><h3>Statement furniture</h3><p>Dining sets, chairs, sofas and beds are designed to bring presence to a room.</p></article>
-          <article class="reveal"><span>04</span><h3>Direct contact</h3><p>Discuss the product, customisation and order details directly with Abdul Interiors.</p></article>
+      <section class="values section-pad" aria-labelledby="values-title">
+        <p class="kicker reveal">Our signatures</p><h2 id="values-title" class="reveal">Quiet confidence.<br /><em>Unmistakable presence.</em></h2>
+        <div class="value-grid">
+          <article class="glass-card reveal"><span>01</span><h3>Made personal</h3><p>Custom furniture enquiries are welcomed, with proportions, materials and finish discussed directly.</p></article>
+          <article class="glass-card reveal"><span>02</span><h3>Craft in view</h3><p>Authentic workshop imagery reveals the carving, upholstery and finishing behind each form.</p></article>
+          <article class="glass-card reveal"><span>03</span><h3>Statement living</h3><p>Pieces are conceived to anchor a room—from dining sets and chairs to sofas and beds.</p></article>
         </div>
       </section>
 
-      <section class="cta-band reveal" aria-labelledby="cta-title">
-        <p class="eyebrow">A piece made for your home</p>
-        <h2 id="cta-title">Looking for furniture with <em>your kind of character?</em></h2>
-        <p>Share the piece, style and finish you have in mind.</p>
-        <a class="button button-dark" href="#contact">Start your enquiry <span>↗</span></a>
+      <section class="atelier section-pad" id="atelier" aria-labelledby="atelier-title">
+        <header class="section-head reveal"><div><p class="kicker">Atelier films</p><h2 id="atelier-title">Craft,<br /><em>in motion.</em></h2></div><p>Original reels from <a href="https://www.instagram.com/abdulinteriors21/" target="_blank" rel="noopener">@abdulinteriors21</a>, showing real pieces as they take shape.</p></header>
+        <div class="film-grid reveal">
+          <iframe title="Abdul Interiors cane-back chair reel" src="https://www.instagram.com/reel/DecbwWnzP7c/embed/" loading="lazy" allowfullscreen></iframe>
+          <iframe title="Abdul Interiors workshop reel" src="https://www.instagram.com/reel/DeW7wE9znE8/embed/" loading="lazy" allowfullscreen></iframe>
+          <iframe title="Abdul Interiors dining chair reel" src="https://www.instagram.com/reel/DeTOYTtTJ5K/embed/" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <a class="text-link atelier-link" href="https://www.instagram.com/abdulinteriors21/reels/" target="_blank" rel="noopener">Enter the Instagram atelier <span>↗</span></a>
       </section>
 
-      <section class="contact section-pad" id="contact" aria-labelledby="contact-title">
-        <div class="contact-copy reveal">
-          <p class="eyebrow">Start a conversation</p>
-          <h2 id="contact-title">Tell us what<br /><em>you need.</em></h2>
-          <p>Call Abdul Interiors on <a href="tel:9012930381"><strong>90 1293 0381</strong></a>, message the official Instagram account, or prepare an enquiry below.</p>
-          <a class="phone-link" href="tel:9012930381"><span>Call Abdul Interiors</span><strong>90 1293 0381 ↗</strong></a>
-          <a class="instagram-link" href="https://www.instagram.com/abdulinteriors21/" target="_blank" rel="noopener"><span>Follow on Instagram</span><strong>@abdulinteriors21 ↗</strong></a>
+      <section class="membership" id="membership" aria-labelledby="membership-title">
+        <img src="assets/instagram/08-dining-table.jpg" alt="Close-up of carved wooden furniture detail" />
+        <div class="membership-shade"></div>
+        <div class="membership-card glass-panel reveal">
+          <p class="kicker light">The private list</p><h2 id="membership-title">First access to<br /><em>new expressions.</em></h2><p>Join the Abdul Interiors private list for collection previews and a direct line for custom furniture enquiries.</p>
+          <form id="membership-form" novalidate><label><span>Your name</span><input name="memberName" autocomplete="name" placeholder="Name" required /></label><label><span>Phone or email</span><input name="memberContact" placeholder="How should we reach you?" required /></label><button class="button button-light" type="submit">Request private access <span>↗</span></button><p class="membership-note">Demo mode: your details are not sent or stored.</p><div class="membership-status" role="status" aria-live="polite"></div></form>
         </div>
-        <form class="contact-form reveal" id="contact-form" novalidate>
-          <div class="field-row">
-            <label>Full name <span aria-hidden="true">*</span><input name="name" autocomplete="name" required placeholder="Your name" /><small class="field-error"></small></label>
-            <label>Phone / WhatsApp <span aria-hidden="true">*</span><input name="phone" type="tel" autocomplete="tel" required placeholder="Your number" /><small class="field-error"></small></label>
-          </div>
-          <div class="field-row">
-            <label>Email (optional)<input name="email" type="email" autocomplete="email" placeholder="you@example.com" /><small class="field-error"></small></label>
-            <label>Furniture type <span aria-hidden="true">*</span><select name="project" required><option value="">Select one</option><option>Dining set</option><option>Sofa or seating</option><option>Bed</option><option>Accent chair</option><option>Custom furniture order</option><option>Other</option></select><small class="field-error"></small></label>
-          </div>
-          <label>Tell us what you have in mind <span aria-hidden="true">*</span><textarea name="message" rows="4" required placeholder="Furniture type, size, style, finish, or questions..."></textarea><small class="field-error"></small></label>
-          <fieldset><legend>Preferred way to hear back</legend><label class="radio"><input type="radio" name="contactMethod" value="WhatsApp" checked /> WhatsApp</label><label class="radio"><input type="radio" name="contactMethod" value="Phone" /> Phone</label><label class="radio"><input type="radio" name="contactMethod" value="Email" /> Email</label></fieldset>
-          <button class="button button-dark submit-button" type="submit">Prepare enquiry <span>↗</span></button>
-          <p class="form-note">Demo mode: no personal information is transmitted or stored.</p>
-          <div class="form-status" role="status" aria-live="polite"></div>
-        </form>
+      </section>
+
+      <section class="concierge section-pad" id="contact" aria-labelledby="contact-title">
+        <div class="reveal"><p class="kicker">Private enquiries</p><h2 id="contact-title">Your piece begins<br />with a <em>conversation.</em></h2></div>
+        <div class="concierge-actions reveal"><p>Discuss a dining set, sofa, bed, chair or entirely custom piece directly with Abdul Interiors.</p><a class="button button-dark" href="tel:9012930381">Call 90 1293 0381 <span>↗</span></a><a class="text-link" href="https://www.instagram.com/abdulinteriors21/" target="_blank" rel="noopener">Message on Instagram <span>↗</span></a></div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-brand"><a class="wordmark footer-wordmark" href="#home"><span>ABDUL</span><span>INTERIORS</span></a><p>Custom furniture—from royal sofas and cozy beds to distinctive dining sets and handcrafted chairs.</p></div>
-      <div><h3>Explore</h3><a href="#about">About</a><a href="#services">Services</a><a href="#work">Our work</a><a href="#contact">Contact</a></div>
-      <div><h3>Furniture</h3><a href="#services">Dining sets</a><a href="#services">Sofas &amp; seating</a><a href="#services">Beds</a><a href="#services">Custom orders</a></div>
-      <div><h3>Connect</h3><a href="tel:9012930381">90 1293 0381 ↗</a><a href="https://www.instagram.com/abdulinteriors21/" target="_blank" rel="noopener">Instagram ↗</a><span class="pending-detail">@abdulinteriors21</span></div>
-      <div class="footer-bottom"><span>© <span id="year"></span> Abdul Interiors</span><span>Media sourced from the official Instagram account</span><a href="#home">Back to top ↑</a></div>
+      <div><a class="brand footer-brand" href="#home"><span>ABDUL</span><small>INTERIORS</small></a><p>Statement furniture, shaped by hand and made personal.</p></div>
+      <div><h3>Collection</h3><a href="#collection">Dining</a><a href="#collection">Seating</a><a href="#craft">Custom orders</a></div>
+      <div><h3>House</h3><a href="#story">Our story</a><a href="#atelier">Atelier films</a><a href="#membership">Private list</a></div>
+      <div><h3>Concierge</h3><a href="tel:9012930381">90 1293 0381</a><a href="https://www.instagram.com/abdulinteriors21/" target="_blank" rel="noopener">@abdulinteriors21 ↗</a></div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Abdul Interiors</span><span>Authentic media from the official Instagram account</span><a href="#home">Back to top ↑</a></div>
     </footer>
 
-    <button class="whatsapp-float" id="whatsapp-button" type="button" aria-label="WhatsApp number pending. Go to enquiry form">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a9.8 9.8 0 0 0-8.4 14.9L2.3 22l5.2-1.4A10 10 0 1 0 12 2Zm0 17.8a7.8 7.8 0 0 1-4-1.1l-.3-.2-3.1.8.8-3-.2-.3a7.8 7.8 0 1 1 6.8 3.8Zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1-1.4-.7-2.4-1.5-3.3-3-.2-.3 0-.5.1-.6l.4-.5.2-.5c.1-.2 0-.4 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4H8.3c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.2-.3-.2-.5-.3l-1.4-.6Z"/></svg>
-      <span>Enquire</span>
-    </button>
-
-    <dialog class="project-dialog" id="project-dialog">
-      <button class="dialog-close" type="button" aria-label="Close project">×</button>
-      <img src="" alt="" />
-      <div><p class="eyebrow">From @abdulinteriors21</p><h2></h2><p class="dialog-copy"></p><p class="dialog-disclaimer">Authentic media shared on the official Abdul Interiors Instagram account.</p><a class="text-link dialog-source" href="#" target="_blank" rel="noopener">View original post <span>↗</span></a><a class="button button-dark" href="#contact">Enquire about furniture <span>↗</span></a></div>
+    <dialog class="product-dialog" id="product-dialog">
+      <button class="dialog-close" type="button" aria-label="Close product">×</button><img src="" alt="" /><div class="dialog-body"><p class="kicker">The collection</p><h2></h2><p class="dialog-copy"></p><p class="dialog-note">Availability, dimensions, finish and order details are confirmed directly with Abdul Interiors.</p><a class="text-link dialog-source" href="#" target="_blank" rel="noopener">View original Instagram post <span>↗</span></a><a class="button button-dark" href="tel:9012930381">Enquire by phone <span>↗</span></a></div>
     </dialog>
   </body>
 </html>

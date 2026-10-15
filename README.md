@@ -1,6 +1,6 @@
 # Abdul Interiors website demo
 
-Premium, responsive single-page website demo built for Abdul Interiors. This is a static, dependency-free site designed for fast previews and straightforward customization.
+Luxury, responsive commerce-style landing page built for Abdul Interiors. The static, dependency-free experience combines a high-end product collection, liquid-glass effects, brand storytelling, atelier films and an enquiry-led private membership CTA.
 
 ## Run locally
 
@@ -28,6 +28,6 @@ Until a valid WhatsApp number is added, WhatsApp interactions intentionally retu
 
 ## Media and enquiry note
 
-Portfolio images and reel embeds come from the official public `@abdulinteriors21` Instagram account. Each project opens a link to its original Instagram post. The enquiry form runs only in the browser and does not transmit or store personal data.
+Product images and reel embeds come from the official public `@abdulinteriors21` Instagram account. Each product detail links to its original Instagram post. Product and membership actions are deliberately enquiry-led: the demo does not invent prices, availability or checkout capability, and no form data is transmitted or stored.
 
 Before using this demo as a final commercial website, the business owner should confirm permission to republish the downloaded Instagram images and approve all captions and product descriptions.
