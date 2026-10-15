@@ -34,3 +34,23 @@ h1{font-size:clamp(3.7rem,7vw,7.1rem);line-height:.94}
 .craft-glass{left:1.25rem;bottom:1.25rem;width:min(340px,calc(100% - 2.5rem));padding:1.2rem}
 .craft-glass p{font-size:1.05rem;line-height:1.45}
 @media(max-width:700px){.craft-visual{height:420px}.craft-glass{left:.75rem;bottom:.75rem;width:min(300px,calc(100% - 1.5rem));padding:1rem}.craft-glass p{font-size:.95rem}}
+
+/* Mobile-first client experience */
+@media(max-width:700px){
+  html{scroll-padding-top:64px}body{font-size:15px}.site-header{height:64px;padding:0 1rem}.site-header.scrolled{height:64px}.site-header.menu-active{color:var(--ink);background:rgba(244,240,231,.98);border-color:var(--line);backdrop-filter:blur(20px)}
+  .brand span{font-size:.82rem}.brand small{font-size:.56rem;margin-top:.35rem}.menu-toggle{width:40px;height:40px;align-items:flex-end}
+  .mobile-nav{inset:64px 0 0;height:calc(100dvh - 64px);padding:1.25rem 1.25rem 2rem;gap:0;overflow-y:auto;border:0;border-radius:0;box-shadow:none;background:var(--ivory);backdrop-filter:none}
+  .mobile-nav a{font-size:clamp(2rem,10vw,2.7rem);line-height:1.05;padding:.8rem 0}
+  .hero{min-height:100svh;align-items:flex-end}.hero-media img{object-position:center}.hero-content{width:100%;padding:7rem 1rem 2.4rem}.hero-content h1{font-size:clamp(3.3rem,15vw,4.3rem);line-height:.9}.hero-content .kicker{margin-bottom:1rem;font-size:.56rem}.hero-copy{font-size:1rem;line-height:1.4;margin:1.2rem 0 1.4rem;max-width:100%}.hero-actions{width:100%;gap:1rem}.hero-actions .button{width:100%;justify-content:space-between;min-height:50px}.hero-actions .text-link{font-size:.57rem}.scroll-mark{display:none}.marquee{padding:.8rem 0}
+  .section-pad{padding:4rem 1rem}.section-head{gap:1.25rem;margin-bottom:2rem}.section-head h2,.story-copy h2,.craft-head h2,.values>h2,.concierge h2{font-size:2.65rem;line-height:.96}.section-head>p{font-size:.88rem}.kicker{margin-bottom:1.1rem;font-size:.56rem}
+  .collection-toolbar{margin-bottom:1rem;padding-bottom:.35rem}.product-card{margin-bottom:1.4rem}.product-image,.product-hero .product-image,.product-wide .product-image{aspect-ratio:1/1}.product-meta{padding:.8rem 0 1.2rem}.product-meta h3{font-size:1.35rem}.glass-tag{top:.75rem;left:.75rem}.image-arrow{right:.75rem;bottom:.75rem;width:40px;height:40px}
+  .story-image{min-height:440px;max-height:440px}.glass-caption{left:.75rem;bottom:.75rem;padding:.75rem .9rem}.story-copy{padding:4rem 1rem}.story-copy .lead{font-size:1.2rem;margin:1.5rem 0 1rem}.story-copy>p:not(.kicker):not(.lead){font-size:.88rem}
+  .craft-head{margin-bottom:2rem}.craft-visual{width:100%;height:340px}.craft-glass{width:min(280px,calc(100% - 1.5rem));padding:.85rem}.craft-glass p{font-size:.88rem}.craft-steps{margin-top:2rem}.craft-steps li,.craft-steps li:first-child{gap:1rem;padding:1rem 0}.craft-steps p{font-size:.76rem}
+  .value-grid{margin-top:2.5rem;gap:.75rem}.glass-card{min-height:210px;padding:1.25rem}.glass-card h3{font-size:1.45rem;margin:2.5rem 0 .5rem}.glass-card p{font-size:.79rem}
+  .film-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;padding-bottom:.75rem}.film-grid iframe,.film-grid iframe:last-child{flex:0 0 84vw;width:84vw;height:540px;min-height:520px;scroll-snap-align:center}.atelier-link{margin-top:1.5rem}
+  .membership{min-height:auto;padding:4.5rem 1rem}.membership-card{width:100%;padding:1.5rem 1rem}.membership-card h2{font-size:2.55rem;line-height:.96}.membership-card>p:not(.kicker){font-size:.92rem;line-height:1.45;margin:1.2rem auto 1.5rem}.membership form{gap:.8rem}.membership input{min-height:48px}.membership .button{width:100%;justify-content:space-between}
+  .concierge{gap:2rem}.concierge-actions p{font-size:1.05rem;margin-bottom:1rem}.concierge-actions,.concierge-actions .button{width:100%}.concierge-actions .button{justify-content:space-between}
+  .site-footer{grid-template-columns:1fr;gap:2rem;padding:3.5rem 1rem 1.25rem}.site-footer>div:first-child,.site-footer>div:nth-child(4){grid-column:auto}.footer-bottom{gap:.45rem;margin-top:1rem}
+  .product-dialog{width:calc(100vw - 1rem)}.product-dialog>img{height:32svh}.dialog-body{padding:1.5rem}.dialog-body h2{font-size:2.5rem}.dialog-copy{font-size:1.05rem;margin:1.25rem 0 .75rem}.dialog-source{margin-bottom:1.4rem}.dialog-body .button{width:100%;justify-content:space-between}.dialog-close{right:.6rem;top:.6rem}
+}
+@media(max-width:390px){.hero-content h1{font-size:3.25rem}.mobile-nav a{font-size:2.15rem}.section-head h2,.story-copy h2,.craft-head h2,.values>h2,.concierge h2{font-size:2.45rem}}

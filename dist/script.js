@@ -13,13 +13,18 @@
     menuToggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
     mobileNav.hidden = isOpen;
     document.body.classList.toggle('menu-open', !isOpen);
+    header.classList.toggle('menu-active', !isOpen);
   });
   mobileNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.setAttribute('aria-label', 'Open menu');
     mobileNav.hidden = true;
     document.body.classList.remove('menu-open');
+    header.classList.remove('menu-active');
   }));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') menuToggle.click();
+  });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
