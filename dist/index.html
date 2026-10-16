@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#151512" />
+    <meta name="theme-color" content="#11110f" />
     <title>Atelier Interiors | Furniture of Distinction</title>
-    <meta name="description" content="Explore statement dining sets, sculptural seating and bespoke interior furniture." />
+    <meta name="description" content="Explore statement dining sets, sculptural seating and bespoke interior furniture crafted by master artisans." />
     <meta property="og:title" content="Atelier Interiors | Furniture of Distinction" />
     <meta property="og:description" content="Statement furniture, shaped by hand and made to order." />
     <meta property="og:image" content="assets/ai/hero-dining.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="config.js" defer></script>
     <script src="script.js" defer></script>
@@ -21,90 +24,427 @@
         <span class="brand-primary">ATELIER</span><small class="brand-secondary">INTERIORS</small>
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#collection">Collection</a><a href="#story">Our story</a><a href="#craft">Craft</a><a href="#atelier">Atelier</a>
+        <a href="#collection">Collection</a>
+        <a href="#materiality">Materiality</a>
+        <a href="#story">Our Story</a>
+        <a href="#craft">Craft</a>
+        <a href="#estimator">Bespoke</a>
+        <a href="#atelier">Atelier</a>
       </nav>
-      <a class="header-action" href="#membership">Private access <span>↗</span></a>
+      <div class="header-actions-wrap">
+        <div class="header-badge"><span class="pulse-dot"></span> Commissions Open</div>
+        <a class="header-action" href="#membership">Private access <span>↗</span></a>
+      </div>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span><span></span></button>
-      <nav class="mobile-nav glass-panel" id="mobile-nav" aria-label="Mobile navigation" hidden>
-        <a href="#collection">Collection</a><a href="#story">Our story</a><a href="#craft">Craft</a><a href="#atelier">Atelier</a><a href="#membership">Private access</a>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+        <a href="#collection">Collection</a>
+        <a href="#materiality">Materiality</a>
+        <a href="#story">Our Story</a>
+        <a href="#craft">Craft</a>
+        <a href="#estimator">Bespoke Inquiry</a>
+        <a href="#atelier">Atelier</a>
+        <a href="#membership">Private Access</a>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" id="home" aria-labelledby="hero-title">
-        <picture class="hero-media"><img src="assets/ai/hero-dining.jpg" alt="Statement dining furniture" fetchpriority="high" /></picture>
-        <div class="hero-vignette"></div>
-        <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
-        <div class="hero-content">
-          <p class="kicker light">The signature collection · Made to order</p>
-          <h1 id="hero-title">Furniture of<br /><em>distinction.</em></h1>
-          <p class="hero-copy">Sculptural dining, expressive seating and custom pieces—crafted to become the centre of a room.</p>
-          <div class="hero-actions"><a class="button button-light" href="#collection">Explore collection <span>↗</span></a><a class="text-link light" href="#story">Discover the house <span>↓</span></a></div>
+        <div class="hero-media-wrap">
+          <div class="hero-slide active" data-slide="dining">
+            <img src="assets/ai/hero-dining.jpg" alt="Statement architectural dining suite in travertine and dark walnut" fetchpriority="high" />
+          </div>
+          <div class="hero-slide" data-slide="living">
+            <img src="assets/ai/luxury-salon.jpg" alt="Curved bouclé modular sofa in luxury salon" loading="lazy" />
+          </div>
+          <div class="hero-slide" data-slide="atelier">
+            <img src="assets/ai/atelier-studio.jpg" alt="Sunlit woodworking design atelier" loading="lazy" />
+          </div>
         </div>
-        <aside class="hero-feature glass-panel" aria-label="Featured piece">
-          <span class="micro">Featured · Dining</span><strong>The Signature Six</strong><p>High-back sculpted seating paired with a luminous tabletop.</p><button class="ghost-link" type="button" data-open-product="signature-six">View the piece <span>↗</span></button>
-        </aside>
+        <div class="hero-vignette"></div>
+
+        <div class="hero-content">
+          <p class="kicker light">✦ Bespoke Architectural Furniture · Commissioned to Order</p>
+          <h1 id="hero-title">Furniture of<br /><em>distinction.</em></h1>
+          <p class="hero-copy">Sculptural dining, expressive seating and custom pieces—crafted from noble hardwoods and honed travertine to become the enduring center of a room.</p>
+          <div class="hero-actions">
+            <a class="button button-gold" href="#estimator">Commission a Piece <span>↗</span></a>
+            <a class="button button-light" href="#collection">Explore Collection <span>↓</span></a>
+            <a class="text-link light" href="#story">The Atelier Philosophy <span>↘</span></a>
+          </div>
+        </div>
+
+        <div class="hero-controls">
+          <div class="room-selector" aria-label="Select room view">
+            <button class="room-btn active" type="button" data-view="dining">01 · Dining</button>
+            <button class="room-btn" type="button" data-view="living">02 · Living</button>
+            <button class="room-btn" type="button" data-view="atelier">03 · Atelier</button>
+          </div>
+          <aside class="hero-feature glass-panel" aria-label="Featured piece">
+            <span class="micro">Featured · Master Suite</span>
+            <strong>The Signature Six</strong>
+            <p>Honed travertine plinth with high-back sculpted walnut seating.</p>
+            <button class="ghost-link" type="button" data-open-product="signature-six">View the piece <span>↗</span></button>
+          </aside>
+        </div>
+
         <a class="scroll-mark" href="#collection"><span></span>Scroll to discover</a>
       </section>
 
-      <section class="marquee" aria-label="Brand values"><div>MADE TO ORDER <i>✦</i> SCULPTURAL COMFORT <i>✦</i> HAND-FINISHED <i>✦</i> DISTINCTIVE LIVING <i>✦</i> MADE TO ORDER <i>✦</i> SCULPTURAL COMFORT</div></section>
+      <section class="provenance-strip" aria-label="Studio highlights">
+        <div class="provenance-item">
+          <span class="provenance-num">100%</span>
+          <span class="provenance-label">Bespoke Commissions</span>
+          <p class="provenance-desc">Proportions, timber grain, and stone finishes customized to your architectural space.</p>
+        </div>
+        <div class="provenance-item">
+          <span class="provenance-num">Heritage</span>
+          <span class="provenance-label">Traditional Joinery</span>
+          <p class="provenance-desc">Hand-carved mortise, tenon, and steam-bent curves made to endure generations.</p>
+        </div>
+        <div class="provenance-item">
+          <span class="provenance-num">4–7 Wks</span>
+          <span class="provenance-label">Meticulous Handcraft</span>
+          <p class="provenance-desc">Individually fabricated inside our studio with natural hand-rubbed oil finishes.</p>
+        </div>
+        <div class="provenance-item">
+          <span class="provenance-num">White-Glove</span>
+          <span class="provenance-label">Worldwide Placement</span>
+          <p class="provenance-desc">Dedicated private crating and architectural installation for residences worldwide.</p>
+        </div>
+      </section>
+
+      <section class="marquee" aria-label="Brand values">
+        <div>SOLID WALNUT <i>✦</i> HONED TRAVERTINE <i>✦</i> HAND-WOVEN CANE <i>✦</i> BESPOKE ARCHITECTURE <i>✦</i> NATURAL OIL FINISH <i>✦</i> PRIVATE COMMISSIONS <i>✦</i> SOLID WALNUT <i>✦</i> HONED TRAVERTINE</div>
+      </section>
 
       <section class="collection section-pad" id="collection" aria-labelledby="collection-title">
-        <header class="section-head reveal"><div><p class="kicker">The collection</p><h2 id="collection-title">Objects with<br /><em>presence.</em></h2></div><p>Authentic pieces and workshop studies from our atelier. Each design is discussed directly for availability, dimensions and custom finishes.</p></header>
+        <header class="section-head reveal">
+          <div>
+            <p class="kicker">The collection</p>
+            <h2 id="collection-title">Objects with<br /><em>presence.</em></h2>
+          </div>
+          <p>Authentic pieces and workshop studies from our atelier. Each commission is handcrafted with customized dimensions, timbers, and finishes.</p>
+        </header>
+
         <div class="collection-toolbar reveal" aria-label="Filter collection">
-          <button class="filter active" type="button" data-filter="all" aria-pressed="true">All pieces</button><button class="filter" type="button" data-filter="dining" aria-pressed="false">Dining</button><button class="filter" type="button" data-filter="seating" aria-pressed="false">Seating</button><button class="filter" type="button" data-filter="atelier" aria-pressed="false">Atelier</button>
+          <button class="filter active" type="button" data-filter="all" aria-pressed="true">All pieces</button>
+          <button class="filter" type="button" data-filter="dining" aria-pressed="false">Dining</button>
+          <button class="filter" type="button" data-filter="seating" aria-pressed="false">Seating</button>
+          <button class="filter" type="button" data-filter="atelier" aria-pressed="false">Atelier Studies</button>
         </div>
+
         <div class="product-grid">
           <article class="product-card product-hero reveal" data-category="dining">
-            <button class="product-image" type="button" data-open-product="signature-six"><img src="assets/ai/hero-dining.jpg" alt="Premium six-seater dining set" /><span class="glass-tag">Featured</span><span class="image-arrow">↗</span></button>
-            <div class="product-meta"><div><small>Dining · Six seats</small><h3>The Signature Six</h3></div><button type="button" data-open-product="signature-six">Enquire</button></div>
+            <button class="product-image" type="button" data-open-product="signature-six">
+              <img src="assets/ai/hero-dining.jpg" alt="Premium six-seater dining set with travertine table" />
+              <span class="glass-tag">Featured · Dining</span>
+              <span class="image-arrow">↗</span>
+            </button>
+            <div class="product-meta">
+              <div>
+                <small>Dining Suite · Travertine & Solid Walnut</small>
+                <h3>The Signature Six</h3>
+              </div>
+              <button type="button" data-open-product="signature-six">View Specification</button>
+            </div>
           </article>
+
           <article class="product-card reveal" data-category="seating">
-            <button class="product-image" type="button" data-open-product="cane-curve"><img src="assets/ai/cane-chair.jpg" alt="Curved cane-back wooden chair" /><span class="glass-tag">In the atelier</span><span class="image-arrow">↗</span></button>
-            <div class="product-meta"><div><small>Seating · Cane</small><h3>The Cane Curve</h3></div><button type="button" data-open-product="cane-curve">Enquire</button></div>
+            <button class="product-image" type="button" data-open-product="cane-curve">
+              <img src="assets/ai/cane-chair.jpg" alt="Curved cane-back wooden armchair" />
+              <span class="glass-tag">In the atelier · Cane</span>
+              <span class="image-arrow">↗</span>
+            </button>
+            <div class="product-meta">
+              <div>
+                <small>Seating · Steam-bent Oak & Bouclé</small>
+                <h3>The Cane Curve</h3>
+              </div>
+              <button type="button" data-open-product="cane-curve">View Specification</button>
+            </div>
           </article>
+
           <article class="product-card reveal" data-category="dining">
-            <button class="product-image" type="button" data-open-product="carved-table"><img src="assets/ai/carved-dining.jpg" alt="Carved wooden dining set with upholstered chairs" /><span class="glass-tag">Statement dining</span><span class="image-arrow">↗</span></button>
-            <div class="product-meta"><div><small>Dining · Carved wood</small><h3>The Carved Table</h3></div><button type="button" data-open-product="carved-table">Enquire</button></div>
+            <button class="product-image" type="button" data-open-product="carved-table">
+              <img src="assets/ai/carved-dining.jpg" alt="Carved wooden dining set with upholstered chairs" />
+              <span class="glass-tag">Statement Dining</span>
+              <span class="image-arrow">↗</span>
+            </button>
+            <div class="product-meta">
+              <div>
+                <small>Dining Table · Dark Smoked Oak</small>
+                <h3>The Carved Table</h3>
+              </div>
+              <button type="button" data-open-product="carved-table">View Specification</button>
+            </div>
           </article>
+
           <article class="product-card product-wide reveal" data-category="atelier">
-            <button class="product-image" type="button" data-open-product="sculpted-chair"><img src="assets/ai/sculpted-chair.jpg" alt="Sculpted wooden chair taking shape in the workshop" /><span class="glass-tag">Form study</span><span class="image-arrow">↗</span></button>
-            <div class="product-meta"><div><small>Atelier · Work in progress</small><h3>The Sculpted Chair</h3></div><button type="button" data-open-product="sculpted-chair">Enquire</button></div>
+            <button class="product-image" type="button" data-open-product="sculpted-chair">
+              <img src="assets/ai/sculpted-chair.jpg" alt="Biomorphic sculpted wooden chair in gallery setting" />
+              <span class="glass-tag">Form Study · Biomorphic</span>
+              <span class="image-arrow">↗</span>
+            </button>
+            <div class="product-meta">
+              <div>
+                <small>Atelier · Carved Solid Walnut</small>
+                <h3>The Sculpted Chair</h3>
+              </div>
+              <button type="button" data-open-product="sculpted-chair">View Specification</button>
+            </div>
           </article>
+
           <article class="product-card reveal" data-category="atelier">
-            <button class="product-image" type="button" data-open-product="hand-finished"><img src="assets/ai/hand-craft.jpg" alt="Craftsperson hand-finishing furniture" /><span class="glass-tag">Hand-finished</span><span class="image-arrow">↗</span></button>
-            <div class="product-meta"><div><small>Atelier · Finish</small><h3>Made by Hand</h3></div><button type="button" data-open-product="hand-finished">Enquire</button></div>
+            <button class="product-image" type="button" data-open-product="hand-finished">
+              <img src="assets/ai/hand-craft.jpg" alt="Master craftsperson hand-finishing furniture with oil" />
+              <span class="glass-tag">Hand-Finished · Detail</span>
+              <span class="image-arrow">↗</span>
+            </button>
+            <div class="product-meta">
+              <div>
+                <small>Atelier · Joinery & Oil Finish</small>
+                <h3>Made by Hand</h3>
+              </div>
+              <button type="button" data-open-product="hand-finished">View Specification</button>
+            </div>
           </article>
+        </div>
+      </section>
+
+      <section class="materiality section-pad" id="materiality" aria-labelledby="materiality-title">
+        <header class="section-head reveal">
+          <div>
+            <p class="kicker light">Noble Materiality</p>
+            <h2 id="materiality-title">Curated timber<br />& <em>living stone.</em></h2>
+          </div>
+          <p>Every piece originates from ethically harvested hardwoods and natural quarried stones, selected for striking grain pattern, tactile depth, and longevity.</p>
+        </header>
+
+        <div class="material-grid">
+          <article class="material-card reveal">
+            <span class="material-tag">Hardwood · Sustainable</span>
+            <h3>American Black Walnut</h3>
+            <p>Deep chocolate hues with undulating cathedral grain. Hand-burnished with natural matte organic oils for a silky tactile surface.</p>
+            <div class="material-swatch"></div>
+          </article>
+
+          <article class="material-card reveal">
+            <span class="material-tag">Living Stone · Italy</span>
+            <h3>Honed Roman Travertine</h3>
+            <p>Architectural porous stone with warm beige striations and subtle earthy cavities. Sealed with a matte finish that preserves its organic texture.</p>
+            <div class="material-swatch" style="background: #dcd3c1;"></div>
+          </article>
+
+          <article class="material-card reveal">
+            <span class="material-tag">Artisanal Fiber · Organic</span>
+            <h3>Natural Woven Cane</h3>
+            <p>Sustainably harvested rattan woven by hand in intricate octagonal patterns, providing both breathable lightness and flexible ergonomic support.</p>
+            <div class="material-swatch" style="background: #e2c290;"></div>
+          </article>
+
+          <article class="material-card reveal">
+            <span class="material-tag">Hardwood · Smoked Finish</span>
+            <h3>Smoked Architectural Oak</h3>
+            <p>Fumed with natural ammonia vapor to darken the timber through its core without pigments, emphasizing deep wire-brushed medullary rays.</p>
+            <div class="material-swatch" style="background: #6a6458;"></div>
+          </article>
+
+          <article class="material-card reveal">
+            <span class="material-tag">Textile · Belgium</span>
+            <h3>Belgian Bouclé & Linen</h3>
+            <p>Textured tactile upholstery spun from pure wool and linen loops. Inherently durable, pill-resistant, and extraordinarily soft to touch.</p>
+            <div class="material-swatch" style="background: #e9e5dd;"></div>
+          </article>
+
+          <article class="material-card reveal">
+            <span class="material-tag">Metal · Unlacquered</span>
+            <h3>Living Patina Brass</h3>
+            <p>Solid unlacquered brass joinery accents and leg caps, hand-brushed to develop an exquisite aged patina unique to your home environment.</p>
+            <div class="material-swatch" style="background: #cbb47c;"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="estimator section-pad" id="estimator" aria-labelledby="estimator-title">
+        <header class="section-head reveal">
+          <div>
+            <p class="kicker">Interactive Commission Builder</p>
+            <h2 id="estimator-title">Shape your piece<br /><em>in minutes.</em></h2>
+          </div>
+          <p>Configure your room requirements, primary noble timber, and scale. Our design concierge will prepare dimensions, 3D studies, and private estimates.</p>
+        </header>
+
+        <div class="estimator-box reveal">
+          <div class="estimator-steps">
+            <div class="estimator-step">
+              <h4><span>1</span> Select Architectural Space</h4>
+              <div class="estimator-options" data-group="space">
+                <button class="opt-pill active" type="button" data-val="Dining Salon">Dining Salon</button>
+                <button class="opt-pill" type="button" data-val="Living Salon">Living Salon</button>
+                <button class="opt-pill" type="button" data-val="Master Suite">Master Suite</button>
+                <button class="opt-pill" type="button" data-val="Private Study">Private Study</button>
+              </div>
+            </div>
+
+            <div class="estimator-step">
+              <h4><span>2</span> Select Primary Material</h4>
+              <div class="estimator-options" data-group="material">
+                <button class="opt-pill active" type="button" data-val="American Black Walnut">American Walnut</button>
+                <button class="opt-pill" type="button" data-val="Honed Roman Travertine">Roman Travertine</button>
+                <button class="opt-pill" type="button" data-val="Smoked White Oak">Smoked White Oak</button>
+                <button class="opt-pill" type="button" data-val="Steam-Bent Cane Weave">Steam-Bent Cane</button>
+              </div>
+            </div>
+
+            <div class="estimator-step">
+              <h4><span>3</span> Select Commission Scale</h4>
+              <div class="estimator-options" data-group="scale">
+                <button class="opt-pill" type="button" data-val="Intimate (2–4 Seats)">Intimate (2–4 Seats)</button>
+                <button class="opt-pill active" type="button" data-val="Grand (6–8 Seats)">Grand (6–8 Seats)</button>
+                <button class="opt-pill" type="button" data-val="Monumental (10–14 Seats)">Monumental (10–14 Seats)</button>
+                <button class="opt-pill" type="button" data-val="Custom Architecture">Custom Architecture</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="estimator-summary">
+            <div>
+              <span class="kicker light">Commission Summary</span>
+              <h3 id="summary-title">Grand Dining Suite</h3>
+              <p id="summary-desc">A statement commission crafted in solid American Black Walnut, engineered for 6–8 seating capacity.</p>
+              
+              <div class="spec-list">
+                <div class="spec-row">
+                  <span>Room Allocation</span>
+                  <strong id="spec-space">Dining Salon</strong>
+                </div>
+                <div class="spec-row">
+                  <span>Primary Material</span>
+                  <strong id="spec-material">American Black Walnut</strong>
+                </div>
+                <div class="spec-row">
+                  <span>Proportion & Scale</span>
+                  <strong id="spec-scale">Grand (6–8 Seats)</strong>
+                </div>
+                <div class="spec-row">
+                  <span>Estimated Atelier Time</span>
+                  <strong>4–6 Weeks</strong>
+                </div>
+              </div>
+            </div>
+
+            <a class="button button-gold" id="commission-action" href="https://wa.me/?text=Hi%2C%20I%20am%20interested%20in%20commissioning%20a%20Grand%20Dining%20Suite%20in%20American%20Black%20Walnut." target="_blank" rel="noopener">
+              Send Specification to Concierge <span>↗</span>
+            </a>
+          </div>
         </div>
       </section>
 
       <section class="story" id="story" aria-labelledby="story-title">
-        <div class="story-image reveal"><img src="assets/ai/atelier-studio.jpg" alt="Inside the design atelier" /><div class="glass-caption"><span>01</span><p>Inside the design atelier</p></div></div>
-        <div class="story-copy section-pad reveal"><p class="kicker story-kicker">The Atelier</p><h2 id="story-title">Designed to be<br /><em>remembered.</em></h2><p class="lead story-lead">Atelier Interiors creates sculptural sofas, bespoke beds, architectural dining furniture and handcrafted seating.</p><p class="story-detail">The collection celebrates bold silhouettes, carved detail and finishes with character. Custom orders invite each client to shape the piece around their own home.</p><a class="text-link" href="#craft">See how it is made <span>↘</span></a></div>
+        <div class="story-image reveal">
+          <img src="assets/ai/atelier-studio.jpg" alt="Inside the design atelier" />
+          <div class="glass-caption">
+            <span>01</span>
+            <p>Inside the Design Atelier</p>
+          </div>
+        </div>
+        <div class="story-copy reveal">
+          <p class="kicker story-kicker">The Atelier</p>
+          <h2 id="story-title">Designed to be<br /><em>remembered.</em></h2>
+          <p class="lead story-lead">Atelier Interiors creates sculptural sofas, bespoke beds, architectural dining furniture and handcrafted seating.</p>
+          <p class="story-detail">Every piece honors natural timber grain, master mortise and tenon joinery, and sculptural comfort. Custom orders invite each client and interior architect to shape the proportions around their private residence.</p>
+          <a class="text-link" href="#craft">Explore Handcraft Traditions <span>↘</span></a>
+        </div>
       </section>
 
       <section class="craft section-pad" id="craft" aria-labelledby="craft-title">
-        <header class="craft-head reveal"><p class="kicker light">The art of making</p><h2 id="craft-title">From raw form<br />to <em>refined object.</em></h2></header>
-        <div class="craft-visual reveal"><img src="assets/ai/timber-detail.jpg" alt="Artisanal timber joinery and hand-finished detail" /><div class="craft-glass glass-panel"><span>Hand-finished</span><p>Every curve, surface and detail passes through the workshop before the piece is complete.</p></div></div>
+        <header class="craft-head reveal">
+          <p class="kicker light">The art of making</p>
+          <h2 id="craft-title">From raw timber<br />to <em>refined object.</em></h2>
+        </header>
+
+        <div class="craft-visual reveal">
+          <img src="assets/ai/timber-detail.jpg" alt="Artisanal timber joinery and hand-finished detail" />
+          <div class="craft-glass glass-panel">
+            <span>Hand-finished Joinery</span>
+            <p>Every curve, seamless joint and organic surface passes through our master artisans before the piece is completed.</p>
+          </div>
+        </div>
+
         <ol class="craft-steps">
-          <li class="reveal"><span>01</span><div><h3>Form</h3><p>A distinctive silhouette begins the piece.</p></div></li>
-          <li class="reveal"><span>02</span><div><h3>Detail</h3><p>Carving and joinery give the design its identity.</p></div></li>
-          <li class="reveal"><span>03</span><div><h3>Comfort</h3><p>Upholstery adds softness to the sculpted structure.</p></div></li>
-          <li class="reveal"><span>04</span><div><h3>Finish</h3><p>Polish and surface detail complete the character.</p></div></li>
+          <li class="reveal">
+            <span>01</span>
+            <div>
+              <h3>Silhouette</h3>
+              <p>A distinctive architectural silhouette begins each commission.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span>02</span>
+            <div>
+              <h3>Joinery</h3>
+              <p>Mortise, tenon, and precision carving give the design its lasting strength.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span>03</span>
+            <div>
+              <h3>Comfort</h3>
+              <p>High-resilience foam and bouclé upholstery add tailored softness.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <span>04</span>
+            <div>
+              <h3>Burnishing</h3>
+              <p>Hand-rubbed natural oils highlight the depth of the wood grain.</p>
+            </div>
+          </li>
         </ol>
       </section>
 
-      <section class="values section-pad" aria-labelledby="values-title">
-        <p class="kicker reveal">Our signatures</p><h2 id="values-title" class="reveal">Quiet confidence.<br /><em>Unmistakable presence.</em></h2>
-        <div class="value-grid">
-          <article class="glass-card reveal"><span>01</span><h3>Made personal</h3><p>Custom furniture enquiries are welcomed, with proportions, materials and finish discussed directly.</p></article>
-          <article class="glass-card reveal"><span>02</span><h3>Craft in view</h3><p>Authentic workshop imagery reveals the carving, upholstery and finishing behind each form.</p></article>
-          <article class="glass-card reveal"><span>03</span><h3>Statement living</h3><p>Pieces are conceived to anchor a room—from dining sets and chairs to sofas and beds.</p></article>
+      <section class="residences section-pad" aria-labelledby="residences-title">
+        <header class="section-head reveal">
+          <div>
+            <p class="kicker">Selected Commissions</p>
+            <h2 id="residences-title">Private residences<br />& <em>interiors.</em></h2>
+          </div>
+          <p>Collaborating with private patrons, leading interior designers, and architects across key design capitals.</p>
+        </header>
+
+        <div class="residence-grid">
+          <article class="residence-card reveal">
+            <span>Private Residence · Mayfair</span>
+            <h3>London Residence</h3>
+            <p>Bespoke 10-seater walnut dining suite and curved cane armchairs designed for an 18th-century heritage townhouse.</p>
+          </article>
+          <article class="residence-card reveal">
+            <span>Penthouse · Tribeca</span>
+            <h3>New York Salon</h3>
+            <p>Honed travertine dining table paired with sculptural bouclé lounge seating overlooking the Hudson River.</p>
+          </article>
+          <article class="residence-card reveal">
+            <span>Coastal Villa · Cap d'Antibes</span>
+            <h3>French Riviera Estate</h3>
+            <p>Solid smoked white oak joinery and handcrafted bedroom suite crafted for sun-washed Mediterranean living.</p>
+          </article>
+          <article class="residence-card reveal">
+            <span>Modernist Pavilion · Al Barari</span>
+            <h3>Dubai Hills Villa</h3>
+            <p>Monumental carved travertine and walnut centerpieces designed to anchor soaring 7-meter architectural ceilings.</p>
+          </article>
         </div>
       </section>
 
       <section class="atelier section-pad" id="atelier" aria-labelledby="atelier-title">
-        <header class="section-head reveal"><div><p class="kicker">Atelier films</p><h2 id="atelier-title">Craft,<br /><em>in motion.</em></h2></div><p id="atelier-subtitle">Behind-the-scenes studies from our workshop atelier, showing real pieces as they take shape.</p></header>
+        <header class="section-head reveal">
+          <div>
+            <p class="kicker">Atelier films</p>
+            <h2 id="atelier-title">Craft,<br /><em>in motion.</em></h2>
+          </div>
+          <p id="atelier-subtitle">Behind-the-scenes studies from our workshop atelier, showing bespoke pieces as they take shape.</p>
+        </header>
+
         <div class="film-grid reveal" id="film-grid">
           <article class="film-card" data-open-product="cane-curve">
             <img src="assets/ai/cane-chair.jpg" alt="Hand-woven cane chair crafting study" loading="lazy" />
@@ -117,6 +457,7 @@
               <p>Expressive steam-bent framework taking shape alongside hand-woven natural cane.</p>
             </div>
           </article>
+
           <article class="film-card" data-open-product="signature-six">
             <img src="assets/ai/atelier-studio.jpg" alt="Master craftsperson dining chair assembly study" loading="lazy" />
             <div class="film-card-shade"></div>
@@ -128,6 +469,7 @@
               <p>Traditional mortise and tenon joinery hand-adjusted for seamless structural integrity.</p>
             </div>
           </article>
+
           <article class="film-card" data-open-product="sculpted-chair">
             <img src="assets/ai/sculpted-chair.jpg" alt="Sculptural dining chair polish and finish study" loading="lazy" />
             <div class="film-card-shade"></div>
@@ -147,16 +489,34 @@
         <img src="assets/ai/luxury-salon.jpg" alt="Architectural luxury interior living salon" />
         <div class="membership-shade"></div>
         <div class="membership-card glass-panel reveal">
-          <p class="kicker light">The private list</p><h2 id="membership-title">First access to<br /><em>new expressions.</em></h2><p>Join our private list for collection previews and a direct line for custom furniture enquiries.</p>
-          <form id="membership-form" novalidate><label><span>Your name</span><input name="memberName" autocomplete="name" placeholder="Name" required /></label><label><span>Phone or email</span><input name="memberContact" placeholder="How should we reach you?" required /></label><button class="button button-light" type="submit">Request private access <span>↗</span></button><p class="membership-note">Preview mode: your details are verified locally for demonstration.</p><div class="membership-status" role="status" aria-live="polite"></div></form>
+          <p class="kicker light">The Private List</p>
+          <h2 id="membership-title">First access to<br /><em>new expressions.</em></h2>
+          <p>Join our private list for collection previews, material library swatch boxes, and direct concierge priority for custom furniture commissions.</p>
+          <form id="membership-form" novalidate>
+            <label>
+              <span>Your name</span>
+              <input name="memberName" autocomplete="name" placeholder="Name" required />
+            </label>
+            <label>
+              <span>Phone or email</span>
+              <input name="memberContact" placeholder="How should we reach you?" required />
+            </label>
+            <button class="button button-gold" type="submit">Request Private Access <span>↗</span></button>
+            <p class="membership-note">Preview mode: your request is confirmed in real time for demonstration.</p>
+            <div class="membership-status" role="status" aria-live="polite"></div>
+          </form>
         </div>
       </section>
 
       <section class="concierge section-pad" id="contact" aria-labelledby="contact-title">
-        <div class="reveal"><p class="kicker">Private enquiries</p><h2 id="contact-title">Your piece begins<br />with a <em>conversation.</em></h2></div>
+        <div class="reveal">
+          <p class="kicker">Private enquiries</p>
+          <h2 id="contact-title">Your piece begins<br />with a <em>conversation.</em></h2>
+        </div>
         <div class="concierge-actions reveal">
           <p id="concierge-prompt">Discuss a dining set, sofa, bed, chair or entirely custom piece directly with our design atelier.</p>
           <a class="button button-dark concierge-phone" href="tel:+18005550199">Call +1 (800) 555-0199 <span>↗</span></a>
+          <a class="button button-gold concierge-whatsapp" href="https://wa.me/" target="_blank" rel="noopener">Chat on WhatsApp <span>↗</span></a>
           <a class="text-link concierge-instagram" href="https://instagram.com" target="_blank" rel="noopener">Message on Instagram <span>↗</span></a>
         </div>
       </section>
@@ -167,33 +527,102 @@
         <a class="brand footer-brand" href="#home">
           <span class="brand-primary">ATELIER</span><small class="brand-secondary">INTERIORS</small>
         </a>
-        <p>Statement furniture, shaped by hand and made personal.</p>
+        <p>Bespoke architectural furniture, sculpted by hand and tailored to the architecture of your space.</p>
       </div>
-      <div><h3>Collection</h3><a href="#collection">Dining</a><a href="#collection">Seating</a><a href="#craft">Custom orders</a></div>
-      <div><h3>House</h3><a href="#story">Our story</a><a href="#atelier">Atelier films</a><a href="#membership">Private list</a></div>
+      <div>
+        <h3>Collection</h3>
+        <a href="#collection">Dining Suites</a>
+        <a href="#collection">Sculptural Seating</a>
+        <a href="#materiality">Material Library</a>
+        <a href="#estimator">Commission Estimator</a>
+      </div>
+      <div>
+        <h3>The House</h3>
+        <a href="#story">Our Story</a>
+        <a href="#craft">Craft Principles</a>
+        <a href="#atelier">Atelier Films</a>
+        <a href="#membership">Private Client List</a>
+      </div>
       <div>
         <h3>Concierge</h3>
         <a class="concierge-phone" href="tel:+18005550199">+1 (800) 555-0199</a>
         <a class="concierge-instagram" href="https://instagram.com" target="_blank" rel="noopener">@atelier.interiors ↗</a>
+        <a class="concierge-email" href="mailto:concierge@atelierinteriors.com">concierge@atelierinteriors.com</a>
       </div>
       <div class="footer-bottom">
-        <span>© <span id="year"></span> <span class="brand-name">Atelier Interiors</span></span>
-        <span>Authentic media from the workshop atelier</span>
+        <span>© <span id="year"></span> <span class="brand-name">Atelier Interiors</span> · All rights reserved</span>
+        <span>Made to order · Worldwide White-Glove Installation</span>
         <a href="#home">Back to top ↑</a>
       </div>
     </footer>
 
+    <!-- Product Modal -->
     <dialog class="product-dialog" id="product-dialog">
       <button class="dialog-close" type="button" aria-label="Close product">×</button>
       <img src="" alt="" />
       <div class="dialog-body">
-        <p class="kicker">The collection</p>
+        <p class="kicker">Collection Specification</p>
         <h2></h2>
         <p class="dialog-copy"></p>
-        <p class="dialog-note">Availability, dimensions, finish and order details are confirmed directly with our design atelier.</p>
-        <a class="text-link dialog-source" href="#contact">Enquire about this piece <span>↘</span></a>
-        <a class="button button-dark dialog-phone" href="tel:+18005550199">Enquire by phone <span>↗</span></a>
+        
+        <div class="dialog-specs">
+          <div>
+            <strong>Dimensions</strong>
+            <span class="spec-dim">Customized to order</span>
+          </div>
+          <div>
+            <strong>Materials</strong>
+            <span class="spec-mat">Noble Solid Timber & Stone</span>
+          </div>
+          <div>
+            <strong>Craft Time</strong>
+            <span>4–6 Weeks Atelier Handcraft</span>
+          </div>
+          <div>
+            <strong>Delivery</strong>
+            <span>Worldwide White-Glove Crating</span>
+          </div>
+        </div>
+
+        <p class="dialog-note">Proportions, wood grains, and custom upholstery are confirmed directly with our design concierge.</p>
+        <a class="button button-gold dialog-whatsapp" href="https://wa.me/" target="_blank" rel="noopener">Enquire on WhatsApp <span>↗</span></a>
+        <a class="button button-dark dialog-phone" href="tel:+18005550199" style="margin-top: 0.6rem;">Enquire by phone <span>↗</span></a>
       </div>
+    </dialog>
+
+    <!-- Floating Concierge & Live Client Personalizer Widget -->
+    <div class="floating-widget">
+      <button class="floating-pill" id="open-customizer-btn" type="button" aria-label="Open Client Personalizer">
+        <span class="gold-dot"></span>
+        <span>Personalize Demo ✦</span>
+      </button>
+    </div>
+
+    <!-- Live Client Customizer Dialog -->
+    <dialog class="demo-customizer-dialog" id="customizer-dialog">
+      <button class="dialog-close" id="close-customizer-btn" type="button" aria-label="Close modal">×</button>
+      <p class="kicker light">Instant Client Pitch Tool</p>
+      <h3>Personalize this Site</h3>
+      <p>Type any prospective client's business name and contact info to test instant live rebranding:</p>
+      
+      <form class="customizer-form" id="customizer-form">
+        <label>
+          <span>Client Studio / Brand Name</span>
+          <input name="clientBrand" placeholder="e.g. Royale Interiors or Luxe Atelier" required />
+        </label>
+        <label>
+          <span>Phone / Contact Number</span>
+          <input name="clientPhone" placeholder="+1 (800) 555-0199" />
+        </label>
+        <label>
+          <span>Instagram Handle</span>
+          <input name="clientIg" placeholder="@client.interiors" />
+        </label>
+        <div class="customizer-actions">
+          <button class="button button-gold" type="submit" style="flex: 1;">Apply Rebrand <span>✓</span></button>
+          <button class="button button-dark" id="copy-client-url-btn" type="button">Copy Client Link <span>📋</span></button>
+        </div>
+      </form>
     </dialog>
   </body>
 </html>

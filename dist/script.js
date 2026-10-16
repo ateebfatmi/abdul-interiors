@@ -1,18 +1,18 @@
 (() => {
-  // --- 1. CONFIGURATION & CLIENT PARAMETER RESOLUTION ---
+  // --- 1. DEFAULT CONFIGURATION & SMART FALLBACKS ---
   const defaultConfig = {
     brandName: "Atelier Interiors",
     brandLogoMain: "ATELIER",
     brandLogoSub: "INTERIORS",
     tagline: "Furniture of Distinction",
-    description: "Explore statement dining sets, sculptural seating and bespoke interior furniture.",
+    description: "Explore statement dining sets, sculptural seating and bespoke interior furniture crafted by master artisans.",
     phoneDisplay: "+1 (800) 555-0199",
     phoneTel: "+18005550199",
     email: "concierge@atelierinteriors.com",
     instagramHandle: "@atelier.interiors",
     instagramUrl: "https://instagram.com",
-    whatsappNumber: "",
-    whatsappMessage: "Hi, I am interested in custom furniture. Could you share more details?",
+    whatsappNumber: "18005550199",
+    whatsappMessage: "Hi, I am interested in commissioning a bespoke furniture piece with your atelier.",
     storyKicker: "The Atelier",
     storyTitle: "Designed to be<br /><em>remembered.</em>",
     storyLead: "Atelier Interiors creates sculptural sofas, bespoke beds, architectural dining furniture and handcrafted seating.",
@@ -24,27 +24,18 @@
   const rawConfig = window.SITE_CONFIG || window.ABDUL_INTERIORS_CONFIG || {};
   const config = Object.assign({}, defaultConfig, rawConfig);
 
-  // Allow instant personalization for client demos via URL parameters:
-  // e.g. ?brand=Studio+Verve&phone=+919876543210&ig=@studioverve
+  // Parse query parameters
   const params = new URLSearchParams(window.location.search);
   const clientName = params.get('brand') || params.get('name') || params.get('client');
   if (clientName) {
-    config.brandName = clientName;
-    const parts = clientName.trim().split(/\s+/);
-    if (parts.length > 1) {
-      config.brandLogoMain = parts[0].toUpperCase();
-      config.brandLogoSub = parts.slice(1).join(' ').toUpperCase();
-    } else {
-      config.brandLogoMain = clientName.toUpperCase();
-      config.brandLogoSub = 'INTERIORS';
-    }
-    config.storyLead = `${clientName} creates sculptural sofas, bespoke beds, architectural dining furniture and handcrafted seating.`;
+    applyBrandName(clientName);
   }
 
   const phoneParam = params.get('phone') || params.get('tel');
   if (phoneParam) {
     config.phoneDisplay = phoneParam;
     config.phoneTel = phoneParam.replace(/[^\d+]/g, '');
+    config.whatsappNumber = config.phoneTel.replace('+', '');
   }
 
   const igParam = params.get('ig') || params.get('instagram');
@@ -59,67 +50,90 @@
     config.email = emailParam;
   }
 
-  const taglineParam = params.get('tagline');
-  if (taglineParam) {
-    config.tagline = taglineParam;
-  }
-
-  // --- 2. APPLY CLIENT BRANDING TO DOM ---
-  document.title = `${config.brandName} | ${config.tagline}`;
-
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.content = config.description;
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle) ogTitle.content = `${config.brandName} | ${config.tagline}`;
-
-  document.querySelectorAll('.brand-primary').forEach((el) => {
-    el.textContent = config.brandLogoMain;
-  });
-  document.querySelectorAll('.brand-secondary').forEach((el) => {
-    el.textContent = config.brandLogoSub;
-  });
-  document.querySelectorAll('.brand-name').forEach((el) => {
-    el.textContent = config.brandName;
-  });
-
-  document.querySelectorAll('.concierge-phone').forEach((el) => {
-    el.href = `tel:${config.phoneTel}`;
-    if (el.classList.contains('button')) {
-      el.innerHTML = `Call ${config.phoneDisplay} <span>↗</span>`;
+  function applyBrandName(name) {
+    config.brandName = name.trim();
+    const parts = config.brandName.split(/\s+/);
+    if (parts.length > 1) {
+      config.brandLogoMain = parts[0].toUpperCase();
+      config.brandLogoSub = parts.slice(1).join(' ').toUpperCase();
     } else {
-      el.textContent = config.phoneDisplay;
+      config.brandLogoMain = config.brandName.toUpperCase();
+      config.brandLogoSub = 'INTERIORS';
     }
-  });
+    config.storyLead = `${config.brandName} creates sculptural sofas, bespoke beds, architectural dining furniture and handcrafted seating.`;
+  }
 
-  document.querySelectorAll('.concierge-instagram').forEach((el) => {
-    el.href = config.instagramUrl;
-    if (!el.classList.contains('button') && !el.classList.contains('atelier-link')) {
-      el.textContent = `${config.instagramHandle} ↗`;
+  // --- 2. APPLY CONFIGURATION TO DOM ---
+  function applySiteConfig() {
+    document.title = `${config.brandName} | ${config.tagline}`;
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.content = config.description;
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = `${config.brandName} | ${config.tagline}`;
+
+    document.querySelectorAll('.brand-primary').forEach((el) => {
+      el.textContent = config.brandLogoMain;
+    });
+    document.querySelectorAll('.brand-secondary').forEach((el) => {
+      el.textContent = config.brandLogoSub;
+    });
+    document.querySelectorAll('.brand-name').forEach((el) => {
+      el.textContent = config.brandName;
+    });
+
+    document.querySelectorAll('.concierge-phone').forEach((el) => {
+      el.href = `tel:${config.phoneTel}`;
+      if (el.classList.contains('button')) {
+        el.innerHTML = `Call ${config.phoneDisplay} <span>↗</span>`;
+      } else {
+        el.textContent = config.phoneDisplay;
+      }
+    });
+
+    document.querySelectorAll('.concierge-email').forEach((el) => {
+      el.href = `mailto:${config.email}`;
+      el.textContent = config.email;
+    });
+
+    document.querySelectorAll('.concierge-instagram').forEach((el) => {
+      el.href = config.instagramUrl;
+      if (!el.classList.contains('button') && !el.classList.contains('atelier-link')) {
+        el.textContent = `${config.instagramHandle} ↗`;
+      }
+    });
+
+    const waNumber = config.whatsappNumber || config.phoneTel.replace(/[^\d]/g, '');
+    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(config.whatsappMessage)}`;
+    document.querySelectorAll('.concierge-whatsapp, .dialog-whatsapp').forEach((el) => {
+      el.href = waUrl;
+    });
+
+    const conciergePrompt = document.querySelector('#concierge-prompt');
+    if (conciergePrompt && config.conciergePrompt) {
+      conciergePrompt.textContent = config.conciergePrompt;
     }
-  });
 
-  const conciergePrompt = document.querySelector('#concierge-prompt');
-  if (conciergePrompt && config.conciergePrompt) {
-    conciergePrompt.textContent = config.conciergePrompt;
+    const storyLead = document.querySelector('.story-lead');
+    if (storyLead && config.storyLead) {
+      storyLead.textContent = config.storyLead;
+    }
+
+    // Optional: Instagram reels
+    const filmGrid = document.querySelector('#film-grid');
+    if (filmGrid && Array.isArray(config.reels) && config.reels.length > 0) {
+      filmGrid.innerHTML = config.reels
+        .map(
+          (url, idx) =>
+            `<iframe title="${config.brandName} workshop reel ${idx + 1}" src="${url}" loading="lazy" allowfullscreen></iframe>`
+        )
+        .join('');
+    }
   }
 
-  const storyLead = document.querySelector('.story-lead');
-  if (storyLead && config.storyLead) {
-    storyLead.textContent = config.storyLead;
-  }
+  applySiteConfig();
 
-  // Optional: If custom Instagram reels are provided in config, render iframes
-  const filmGrid = document.querySelector('#film-grid');
-  if (filmGrid && Array.isArray(config.reels) && config.reels.length > 0) {
-    filmGrid.innerHTML = config.reels
-      .map(
-        (url, idx) =>
-          `<iframe title="${config.brandName} workshop reel ${idx + 1}" src="${url}" loading="lazy" allowfullscreen></iframe>`
-      )
-      .join('');
-  }
-
-  // --- 3. HEADER & NAVIGATION ---
+  // --- 3. HEADER & MOBILE NAVIGATION ---
   const header = document.querySelector('#site-header');
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('#mobile-nav');
@@ -153,7 +167,38 @@
     }
   });
 
-  // --- 4. SCROLL REVEAL OBSERVER ---
+  // --- 4. HERO ROOM VIEWS SWITCHER ---
+  const roomButtons = document.querySelectorAll('.room-btn');
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  let currentSlideIdx = 0;
+  let heroTimer = null;
+
+  function switchHeroView(viewKey) {
+    roomButtons.forEach((btn) => {
+      const active = btn.dataset.view === viewKey;
+      btn.classList.toggle('active', active);
+    });
+    heroSlides.forEach((slide) => {
+      const active = slide.dataset.slide === viewKey;
+      slide.classList.toggle('active', active);
+    });
+  }
+
+  roomButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      clearInterval(heroTimer);
+      switchHeroView(btn.dataset.view);
+    });
+  });
+
+  // Gentle auto-rotation
+  const viewsList = ['dining', 'living', 'atelier'];
+  heroTimer = setInterval(() => {
+    currentSlideIdx = (currentSlideIdx + 1) % viewsList.length;
+    switchHeroView(viewsList[currentSlideIdx]);
+  }, 8000);
+
+  // --- 5. SCROLL REVEAL OBSERVER ---
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -167,7 +212,7 @@
   );
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
-  // --- 5. COLLECTION FILTERS ---
+  // --- 6. COLLECTION FILTERS ---
   const filters = document.querySelectorAll('.filter');
   const productCards = document.querySelectorAll('.product-card');
   filters.forEach((button) =>
@@ -184,42 +229,102 @@
     })
   );
 
-  // --- 6. PRODUCT CATALOG & MODAL DIALOG ---
+  // --- 7. INTERACTIVE BESPOKE COMMISSION ESTIMATOR ---
+  const estimatorState = {
+    space: 'Dining Salon',
+    material: 'American Black Walnut',
+    scale: 'Grand (6–8 Seats)'
+  };
+
+  const optPills = document.querySelectorAll('.opt-pill');
+  const summaryTitle = document.querySelector('#summary-title');
+  const summaryDesc = document.querySelector('#summary-desc');
+  const specSpace = document.querySelector('#spec-space');
+  const specMaterial = document.querySelector('#spec-material');
+  const specScale = document.querySelector('#spec-scale');
+  const commissionAction = document.querySelector('#commission-action');
+
+  function updateEstimator() {
+    let title = '';
+    if (estimatorState.space === 'Dining Salon') {
+      title = `${estimatorState.scale.split(' ')[0]} Dining Suite`;
+    } else if (estimatorState.space === 'Living Salon') {
+      title = `Architectural Salon Suite`;
+    } else if (estimatorState.space === 'Master Suite') {
+      title = `Sanctuary Master Commission`;
+    } else {
+      title = `Executive Studio Commission`;
+    }
+
+    if (summaryTitle) summaryTitle.textContent = title;
+    if (specSpace) specSpace.textContent = estimatorState.space;
+    if (specMaterial) specMaterial.textContent = estimatorState.material;
+    if (specScale) specScale.textContent = estimatorState.scale;
+    if (summaryDesc) {
+      summaryDesc.textContent = `A bespoke ${estimatorState.space.toLowerCase()} centerpiece sculpted in ${estimatorState.material}, proportioned for ${estimatorState.scale.toLowerCase()}.`;
+    }
+
+    if (commissionAction) {
+      const waNumber = config.whatsappNumber || config.phoneTel.replace(/[^\d]/g, '');
+      const text = `Hi ${config.brandName}, I would like to enquire about a bespoke commission: ${title} in ${estimatorState.material} for my ${estimatorState.space} (${estimatorState.scale}).`;
+      commissionAction.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+    }
+  }
+
+  optPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const parent = pill.closest('.estimator-options');
+      const group = parent.dataset.group;
+      parent.querySelectorAll('.opt-pill').forEach((p) => p.classList.remove('active'));
+      pill.classList.add('active');
+      estimatorState[group] = pill.dataset.val;
+      updateEstimator();
+    });
+  });
+
+  updateEstimator();
+
+  // --- 8. PRODUCT SPECIFICATIONS & LIGHTBOX DIALOG ---
   const products = {
     'signature-six': {
       title: 'The Signature Six',
       image: 'assets/ai/hero-dining.jpg',
-      alt: 'Premium six-seater dining set',
-      copy: 'A six-seater statement dining suite with sculpted high-back chairs and a solid stone-finish tabletop.',
-      source: '#contact'
+      alt: 'Premium six-seater dining set with travertine table',
+      copy: 'A six-seater statement dining suite with sculpted high-back chairs and a solid honed Roman travertine tabletop resting upon a monumental fluted dark walnut plinth.',
+      dim: '260cm L × 110cm W × 76cm H',
+      mat: 'Honed Roman Travertine & American Black Walnut'
     },
     'cane-curve': {
       title: 'The Cane Curve',
       image: 'assets/ai/cane-chair.jpg',
-      alt: 'Curved cane-back wooden chair',
-      copy: 'An expressive steam-bent timber frame paired with intricately hand-woven natural cane weave.',
-      source: '#contact'
+      alt: 'Curved cane-back wooden armchair',
+      copy: 'An expressive steam-bent solid oak framework paired with intricately hand-woven natural cane backrest and tailored ivory Belgian bouclé seating.',
+      dim: '72cm W × 78cm D × 84cm H (Seat 44cm)',
+      mat: 'Solid White Oak, Natural Cane & Belgian Bouclé'
     },
     'carved-table': {
       title: 'The Carved Table',
       image: 'assets/ai/carved-dining.jpg',
       alt: 'Carved wooden dining set',
-      copy: 'A richly detailed artisanal dining table paired with custom upholstered high-back seating.',
-      source: '#contact'
+      copy: 'A richly detailed artisanal dining table crafted from solid dark smoked oak, featuring architectural fluted pedestal pillars and hand-rubbed satin oil luster.',
+      dim: '300cm L × 120cm W × 76cm H',
+      mat: 'Dark Smoked Architectural Oak'
     },
     'sculpted-chair': {
       title: 'The Sculpted Chair',
       image: 'assets/ai/sculpted-chair.jpg',
-      alt: 'Sculpted wooden dining chair in progress',
-      copy: 'Fluid architectural geometry sculpted in solid timber before final upholstery and hand finishing.',
-      source: '#contact'
+      alt: 'Sculptural wooden lounge chair',
+      copy: 'Fluid biomorphic curves sculpted from solid American walnut. An iconic statement chair bridging the gap between functional seating and gallery art.',
+      dim: '82cm W × 86cm D × 74cm H',
+      mat: 'Carved Solid American Black Walnut'
     },
     'hand-finished': {
       title: 'Made by Hand',
       image: 'assets/ai/hand-craft.jpg',
-      alt: 'Furniture being finished by hand',
-      copy: 'Every contour, joint, and surface receives hand-burnished finishing inside our atelier workshop.',
-      source: '#contact'
+      alt: 'Master artisan hand-finishing furniture',
+      copy: 'Every contour, joint, and surface receives hand-burnished finishing inside our atelier workshop using organic plant oils and beeswax.',
+      dim: 'Atelier Studies & Tailored Commissions',
+      mat: 'Natural Organic Matte Oils & Sustainable Hardwoods'
     }
   };
 
@@ -227,8 +332,10 @@
   const dialogImage = dialog.querySelector('img');
   const dialogTitle = dialog.querySelector('h2');
   const dialogCopy = dialog.querySelector('.dialog-copy');
-  const dialogSource = dialog.querySelector('.dialog-source');
+  const dialogDim = dialog.querySelector('.spec-dim');
+  const dialogMat = dialog.querySelector('.spec-mat');
   const dialogPhone = dialog.querySelector('.dialog-phone');
+  const dialogWa = dialog.querySelector('.dialog-whatsapp');
   let lastTrigger = null;
 
   document.querySelectorAll('[data-open-product]').forEach((trigger) =>
@@ -242,11 +349,19 @@
       dialogImage.alt = product.alt;
       dialogTitle.textContent = product.title;
       dialogCopy.textContent = product.copy;
-      dialogSource.href = '#contact';
+
+      if (dialogDim) dialogDim.textContent = product.dim || 'Custom dimensions available';
+      if (dialogMat) dialogMat.textContent = product.mat || 'Noble Hardwood & Stone';
 
       if (dialogPhone) {
         dialogPhone.href = `tel:${config.phoneTel}`;
-        dialogPhone.innerHTML = `Enquire by phone <span>↗</span>`;
+        dialogPhone.innerHTML = `Enquire by phone (${config.phoneDisplay}) <span>↗</span>`;
+      }
+
+      if (dialogWa) {
+        const waNumber = config.whatsappNumber || config.phoneTel.replace(/[^\d]/g, '');
+        const text = `Hi ${config.brandName}, I am interested in ordering or customizing "${product.title}". Could you provide details?`;
+        dialogWa.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
       }
 
       dialog.showModal();
@@ -268,7 +383,7 @@
   });
   dialog.addEventListener('close', () => lastTrigger?.focus());
 
-  // --- 7. MEMBERSHIP FORM ---
+  // --- 9. MEMBERSHIP FORM ---
   const membershipForm = document.querySelector('#membership-form');
   const membershipStatus = membershipForm.querySelector('.membership-status');
   membershipForm.addEventListener('submit', (event) => {
@@ -281,11 +396,86 @@
       return;
     }
 
-    membershipStatus.innerHTML = `Your private-access request has been prepared. Our design concierge will be in touch shortly. For immediate enquiries, please call <a href="tel:${config.phoneTel}">${config.phoneDisplay}</a> or message <a href="${config.instagramUrl}" target="_blank" rel="noopener">${config.instagramHandle}</a>.`;
+    membershipStatus.innerHTML = `Thank you, ${name}. Your private-access invitation has been registered with ${config.brandName}. For immediate commission consultations, please call <a href="tel:${config.phoneTel}">${config.phoneDisplay}</a> or message <a href="${config.instagramUrl}" target="_blank" rel="noopener">${config.instagramHandle}</a>.`;
     membershipStatus.classList.add('show');
   });
 
-  // --- 8. FOOTER YEAR ---
+  // --- 10. LIVE CLIENT REBRAND MODAL (PITCH TOOL) ---
+  const customizerDialog = document.querySelector('#customizer-dialog');
+  const openCustomizerBtn = document.querySelector('#open-customizer-btn');
+  const closeCustomizerBtn = document.querySelector('#close-customizer-btn');
+  const customizerForm = document.querySelector('#customizer-form');
+  const copyClientUrlBtn = document.querySelector('#copy-client-url-btn');
+
+  if (openCustomizerBtn && customizerDialog) {
+    openCustomizerBtn.addEventListener('click', () => {
+      customizerForm.elements.clientBrand.value = config.brandName;
+      customizerForm.elements.clientPhone.value = config.phoneDisplay;
+      customizerForm.elements.clientIg.value = config.instagramHandle;
+      customizerDialog.showModal();
+    });
+
+    closeCustomizerBtn.addEventListener('click', () => customizerDialog.close());
+    customizerDialog.addEventListener('click', (e) => {
+      const box = customizerDialog.getBoundingClientRect();
+      if (e.clientX < box.left || e.clientX > box.right || e.clientY < box.top || e.clientY > box.bottom) {
+        customizerDialog.close();
+      }
+    });
+
+    customizerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const newBrand = customizerForm.elements.clientBrand.value.trim();
+      const newPhone = customizerForm.elements.clientPhone.value.trim();
+      const newIg = customizerForm.elements.clientIg.value.trim();
+
+      if (newBrand) {
+        applyBrandName(newBrand);
+      }
+      if (newPhone) {
+        config.phoneDisplay = newPhone;
+        config.phoneTel = newPhone.replace(/[^\d+]/g, '');
+        config.whatsappNumber = config.phoneTel.replace('+', '');
+      }
+      if (newIg) {
+        const handle = newIg.startsWith('@') ? newIg : `@${newIg}`;
+        config.instagramHandle = handle;
+        config.instagramUrl = `https://www.instagram.com/${handle.replace('@', '')}/`;
+      }
+
+      applySiteConfig();
+      updateEstimator();
+
+      // Update URL without reload
+      const url = new URL(window.location.href);
+      url.searchParams.set('brand', config.brandName);
+      if (newPhone) url.searchParams.set('phone', config.phoneDisplay);
+      if (newIg) url.searchParams.set('ig', config.instagramHandle);
+      window.history.replaceState({}, '', url.toString());
+
+      customizerDialog.close();
+    });
+
+    copyClientUrlBtn.addEventListener('click', () => {
+      const brandVal = customizerForm.elements.clientBrand.value.trim() || config.brandName;
+      const phoneVal = customizerForm.elements.clientPhone.value.trim() || config.phoneDisplay;
+      const igVal = customizerForm.elements.clientIg.value.trim() || config.instagramHandle;
+
+      const url = new URL(window.location.href);
+      url.searchParams.set('brand', brandVal);
+      url.searchParams.set('phone', phoneVal);
+      url.searchParams.set('ig', igVal);
+
+      navigator.clipboard.writeText(url.toString()).then(() => {
+        copyClientUrlBtn.innerHTML = `Copied! <span>✓</span>`;
+        setTimeout(() => {
+          copyClientUrlBtn.innerHTML = `Copy Client Link <span>📋</span>`;
+        }, 2500);
+      });
+    });
+  }
+
+  // --- 11. FOOTER YEAR ---
   const yearEl = document.querySelector('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
