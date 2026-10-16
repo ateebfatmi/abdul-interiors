@@ -25,29 +25,34 @@
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#collection">Collection</a>
+        <a href="#visual-customizer">Customizer</a>
         <a href="#materiality">Materiality</a>
-        <a href="#story">Our Story</a>
-        <a href="#craft">Craft</a>
+        <a href="#transformation">Transformation</a>
+        <a href="#trade">Trade & Architects</a>
         <a href="#estimator">Bespoke</a>
-        <a href="#atelier">Atelier</a>
       </nav>
       <div class="header-actions-wrap">
-        <div class="header-badge"><span class="pulse-dot"></span> Commissions Open</div>
-        <a class="header-action" href="#membership">Private access <span>↗</span></a>
+        <button class="sound-toggle-btn" id="sound-toggle" type="button" aria-label="Toggle Atelier Soundscape">
+          <div class="sound-bars"><span></span><span></span><span></span></div>
+          <span class="sound-label">Atelier Sound</span>
+        </button>
+        <button class="button button-gold" id="header-book-btn" type="button" style="padding: 0.6rem 1.1rem; min-height: 42px; font-size: 0.58rem;">Book Consultation</button>
       </div>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span><span></span></button>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
         <a href="#collection">Collection</a>
+        <a href="#visual-customizer">Live Customizer</a>
         <a href="#materiality">Materiality</a>
-        <a href="#story">Our Story</a>
-        <a href="#craft">Craft</a>
-        <a href="#estimator">Bespoke Inquiry</a>
-        <a href="#atelier">Atelier</a>
-        <a href="#membership">Private Access</a>
+        <a href="#transformation">Transformation</a>
+        <a href="#trade">Trade Program</a>
+        <a href="#estimator">Bespoke Builder</a>
+        <a href="#atelier">Atelier Films</a>
+        <a href="#membership">Private Client List</a>
       </nav>
     </header>
 
     <main id="main">
+      <!-- Hero Section -->
       <section class="hero" id="home" aria-labelledby="hero-title">
         <div class="hero-media-wrap">
           <div class="hero-slide active" data-slide="dining">
@@ -65,11 +70,11 @@
         <div class="hero-content">
           <p class="kicker light">✦ Bespoke Architectural Furniture · Commissioned to Order</p>
           <h1 id="hero-title">Furniture of<br /><em>distinction.</em></h1>
-          <p class="hero-copy">Sculptural dining, expressive seating and custom pieces—crafted from noble hardwoods and honed travertine to become the enduring center of a room.</p>
+          <p class="hero-copy">Monumental dining suites, fluid cane seating, and architectural centerpieces—hand-carved from noble hardwoods and honed travertine to anchor your private residence.</p>
           <div class="hero-actions">
-            <a class="button button-gold" href="#estimator">Commission a Piece <span>↗</span></a>
-            <a class="button button-light" href="#collection">Explore Collection <span>↓</span></a>
-            <a class="text-link light" href="#story">The Atelier Philosophy <span>↘</span></a>
+            <button class="button button-gold" id="hero-consult-btn" type="button">Book Design Consultation <span>↗</span></button>
+            <a class="button button-light" href="#visual-customizer">Try Live Customizer <span>✦</span></a>
+            <button class="text-link light" id="hero-swatch-btn" type="button">Request Swatch Box <span>↘</span></button>
           </div>
         </div>
 
@@ -83,13 +88,14 @@
             <span class="micro">Featured · Master Suite</span>
             <strong>The Signature Six</strong>
             <p>Honed travertine plinth with high-back sculpted walnut seating.</p>
-            <button class="ghost-link" type="button" data-open-product="signature-six">View the piece <span>↗</span></button>
+            <button class="ghost-link" type="button" data-open-product="signature-six">View Specification <span>↗</span></button>
           </aside>
         </div>
 
         <a class="scroll-mark" href="#collection"><span></span>Scroll to discover</a>
       </section>
 
+      <!-- Provenance Metrics Strip -->
       <section class="provenance-strip" aria-label="Studio highlights">
         <div class="provenance-item">
           <span class="provenance-num">100%</span>
@@ -113,14 +119,31 @@
         </div>
       </section>
 
+      <!-- Press & Editorial Recognition -->
+      <section class="press-strip" aria-label="Press recognition">
+        <p class="press-quote">
+          “Atelier Interiors is redefining contemporary collectible furniture through monumental scale, tactile stone plinths, and ancient hand-joinery traditions.”
+          <span>Featured in International Architectural Press</span>
+        </p>
+        <div class="press-logos">
+          <span class="press-logo">Architectural Digest</span>
+          <span class="press-logo">Elle Décor</span>
+          <span class="press-logo">Wallpaper*</span>
+          <span class="press-logo">Vogue Living</span>
+          <span class="press-logo">Dezeen</span>
+        </div>
+      </section>
+
+      <!-- Marquee -->
       <section class="marquee" aria-label="Brand values">
         <div>SOLID WALNUT <i>✦</i> HONED TRAVERTINE <i>✦</i> HAND-WOVEN CANE <i>✦</i> BESPOKE ARCHITECTURE <i>✦</i> NATURAL OIL FINISH <i>✦</i> PRIVATE COMMISSIONS <i>✦</i> SOLID WALNUT <i>✦</i> HONED TRAVERTINE</div>
       </section>
 
+      <!-- Collection Section -->
       <section class="collection section-pad" id="collection" aria-labelledby="collection-title">
         <header class="section-head reveal">
           <div>
-            <p class="kicker">The collection</p>
+            <p class="kicker">The Collection</p>
             <h2 id="collection-title">Objects with<br /><em>presence.</em></h2>
           </div>
           <p>Authentic pieces and workshop studies from our atelier. Each commission is handcrafted with customized dimensions, timbers, and finishes.</p>
@@ -211,6 +234,119 @@
         </div>
       </section>
 
+      <!-- Live Interactive Bespoke Customizer Section -->
+      <section class="visual-customizer-sec section-pad" id="visual-customizer" aria-labelledby="customizer-heading">
+        <header class="section-head reveal">
+          <div>
+            <p class="kicker light">Live Bespoke Studio</p>
+            <h2 id="customizer-heading">Tailor your piece<br /><em>in real time.</em></h2>
+          </div>
+          <p>Experiment with noble timbers, honed stones, and luxury textiles. View estimated commission scale and connect directly with our master joiners.</p>
+        </header>
+
+        <div class="customizer-layout reveal">
+          <div class="customizer-stage">
+            <img id="stage-img" src="assets/ai/hero-dining.jpg" alt="Interactive custom furniture piece" />
+            <div class="stage-badge" id="stage-badge">The Signature Six · Bespoke Edition</div>
+            <div class="stage-price">
+              <span>Commission Guide</span>
+              <strong id="stage-price-val">$5,400 – $7,200</strong>
+            </div>
+          </div>
+
+          <div class="customizer-panel">
+            <div class="config-group">
+              <h4>1. Noble Hardwood Base</h4>
+              <div class="swatch-picker" data-param="wood">
+                <button class="swatch-btn active" type="button" data-val="American Black Walnut" data-img="assets/ai/hero-dining.jpg" data-price="$5,400 – $7,200">
+                  <span class="dot" style="background: #4b3621;"></span>
+                  <span>American Walnut</span>
+                </button>
+                <button class="swatch-btn" type="button" data-val="Dark Smoked Oak" data-img="assets/ai/carved-dining.jpg" data-price="$5,100 – $6,800">
+                  <span class="dot" style="background: #2b2b28;"></span>
+                  <span>Smoked Oak</span>
+                </button>
+                <button class="swatch-btn" type="button" data-val="Bleached White Oak" data-img="assets/ai/cane-chair.jpg" data-price="$4,900 – $6,400">
+                  <span class="dot" style="background: #dcd3c1;"></span>
+                  <span>White Oak</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="config-group">
+              <h4>2. Centerpiece Material</h4>
+              <div class="swatch-picker" data-param="surface">
+                <button class="swatch-btn active" type="button" data-val="Honed Roman Travertine">
+                  <span class="dot" style="background: #e6dfcf;"></span>
+                  <span>Roman Travertine</span>
+                </button>
+                <button class="swatch-btn" type="button" data-val="Solid Carved Timber">
+                  <span class="dot" style="background: #3e2723;"></span>
+                  <span>Solid Timber</span>
+                </button>
+                <button class="swatch-btn" type="button" data-val="Hand-Woven Natural Cane">
+                  <span class="dot" style="background: #e2c290;"></span>
+                  <span>Woven Cane</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="config-group">
+              <h4>3. Tailored Upholstery</h4>
+              <div class="swatch-picker" data-param="upholstery">
+                <button class="swatch-btn active" type="button" data-val="Ivory Belgian Bouclé">
+                  <span class="dot" style="background: #f7f4ee;"></span>
+                  <span>Ivory Bouclé</span>
+                </button>
+                <button class="swatch-btn" type="button" data-val="Cognac Aniline Leather">
+                  <span class="dot" style="background: #965a38;"></span>
+                  <span>Cognac Leather</span>
+                </button>
+                <button class="swatch-btn" type="button" data-val="Sage Linen">
+                  <span class="dot" style="background: #777b68;"></span>
+                  <span>Sage Linen</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="config-specs-box">
+              <div><span>Selected Timber:</span> <strong id="cfg-wood">American Black Walnut</strong></div>
+              <div><span>Tabletop Surface:</span> <strong id="cfg-surface">Honed Roman Travertine</strong></div>
+              <div><span>Upholstery:</span> <strong id="cfg-uph">Ivory Belgian Bouclé</strong></div>
+              <div><span>Fabrication Time:</span> <strong>4–6 Weeks</strong></div>
+            </div>
+
+            <a class="button button-gold" id="customizer-wa-btn" href="#" target="_blank" rel="noopener">
+              Lock In Configuration on WhatsApp <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Before & After Transformation Slider Section -->
+      <section class="transformation-sec section-pad" id="transformation" aria-labelledby="trans-title">
+        <header class="section-head reveal">
+          <div>
+            <p class="kicker">Architectural Transformation</p>
+            <h2 id="trans-title">From raw space<br />to <em>living sanctuary.</em></h2>
+          </div>
+          <p>Drag the interactive slider below to witness how sculptural dining suites and bespoke seating anchor an empty architectural residence.</p>
+        </header>
+
+        <div class="slider-wrapper reveal" id="before-after-slider">
+          <!-- After Image (Fully Furnished Luxury Salon) -->
+          <img class="slider-img" src="assets/ai/luxury-salon.jpg" alt="Furnished modern luxury salon" />
+          <!-- Before Image (Atelier Workshop Framework) -->
+          <img class="slider-img img-before" src="assets/ai/atelier-studio.jpg" alt="Raw architectural timber frame" />
+          
+          <div class="slider-divider"></div>
+          <div class="slider-handle-btn" aria-hidden="true">◀ ▶</div>
+          <span class="slider-caption cap-left">Raw Studio Architecture</span>
+          <span class="slider-caption cap-right">Furnished Residence</span>
+        </div>
+      </section>
+
+      <!-- Materiality Section -->
       <section class="materiality section-pad" id="materiality" aria-labelledby="materiality-title">
         <header class="section-head reveal">
           <div>
@@ -265,10 +401,59 @@
         </div>
       </section>
 
+      <!-- Trade, Architects & Interior Designers Program -->
+      <section class="trade-sec section-pad" id="trade" aria-labelledby="trade-title">
+        <header class="section-head reveal">
+          <div>
+            <p class="kicker">For Design Professionals</p>
+            <h2 id="trade-title">Trade, architects<br />& <em>designers.</em></h2>
+          </div>
+          <p>We partner with leading architectural practices and interior designers worldwide to realize bespoke custom furniture packages for luxury residential and hospitality commissions.</p>
+        </header>
+
+        <div class="trade-grid">
+          <article class="trade-card reveal">
+            <div class="trade-icon">📐</div>
+            <div>
+              <h3>3D CAD & BIM Models</h3>
+              <p>Instant access to high-fidelity 3D assets (Revit, SketchUp, Rhino, 3DS Max) ready to drop into your client presentation renders.</p>
+            </div>
+            <button class="ghost-link" id="trade-cad-btn" type="button" style="margin-top: 1.5rem;">Download CAD Pack <span>↗</span></button>
+          </article>
+
+          <article class="trade-card reveal">
+            <div class="trade-icon">📦</div>
+            <div>
+              <h3>Curated Swatch Box</h3>
+              <p>Complimentary embossed linen sample case containing hand-finished timber blocks, stone fragments, and tactile textile cards.</p>
+            </div>
+            <button class="ghost-link" id="trade-swatch-btn" type="button" style="margin-top: 1.5rem;">Request Material Box <span>↗</span></button>
+          </article>
+
+          <article class="trade-card reveal">
+            <div class="trade-icon">✦</div>
+            <div>
+              <h3>Trade Courtesy & Concierge</h3>
+              <p>Exclusive trade tier pricing, dedicated atelier project manager, customized floorplan sizing, and guaranteed production priority.</p>
+            </div>
+            <button class="ghost-link" id="trade-join-btn" type="button" style="margin-top: 1.5rem;">Apply for Trade Tier <span>↗</span></button>
+          </article>
+        </div>
+
+        <div class="trade-cta-banner reveal">
+          <div>
+            <span class="kicker light">Architectural Collaboration</span>
+            <h3>Have an upcoming residential or hospitality project?<br /><em>Let’s engineer the furniture together.</em></h3>
+          </div>
+          <button class="button button-gold" id="trade-cta-btn" type="button">Book an Architect Call <span>↗</span></button>
+        </div>
+      </section>
+
+      <!-- Commission Estimator -->
       <section class="estimator section-pad" id="estimator" aria-labelledby="estimator-title">
         <header class="section-head reveal">
           <div>
-            <p class="kicker">Interactive Commission Builder</p>
+            <p class="kicker">Bespoke Commission Builder</p>
             <h2 id="estimator-title">Shape your piece<br /><em>in minutes.</em></h2>
           </div>
           <p>Configure your room requirements, primary noble timber, and scale. Our design concierge will prepare dimensions, 3D studies, and private estimates.</p>
@@ -340,6 +525,7 @@
         </div>
       </section>
 
+      <!-- Story Section -->
       <section class="story" id="story" aria-labelledby="story-title">
         <div class="story-image reveal">
           <img src="assets/ai/atelier-studio.jpg" alt="Inside the design atelier" />
@@ -357,6 +543,7 @@
         </div>
       </section>
 
+      <!-- Craft Section -->
       <section class="craft section-pad" id="craft" aria-labelledby="craft-title">
         <header class="craft-head reveal">
           <p class="kicker light">The art of making</p>
@@ -403,6 +590,7 @@
         </ol>
       </section>
 
+      <!-- Private Residences Section -->
       <section class="residences section-pad" aria-labelledby="residences-title">
         <header class="section-head reveal">
           <div>
@@ -436,6 +624,7 @@
         </div>
       </section>
 
+      <!-- Atelier Films -->
       <section class="atelier section-pad" id="atelier" aria-labelledby="atelier-title">
         <header class="section-head reveal">
           <div>
@@ -485,6 +674,7 @@
         <a class="text-link atelier-link concierge-instagram" href="https://instagram.com" target="_blank" rel="noopener">Follow our Instagram atelier <span>↗</span></a>
       </section>
 
+      <!-- Membership Section -->
       <section class="membership" id="membership" aria-labelledby="membership-title">
         <img src="assets/ai/luxury-salon.jpg" alt="Architectural luxury interior living salon" />
         <div class="membership-shade"></div>
@@ -508,6 +698,7 @@
         </div>
       </section>
 
+      <!-- Concierge Section -->
       <section class="concierge section-pad" id="contact" aria-labelledby="contact-title">
         <div class="reveal">
           <p class="kicker">Private enquiries</p>
@@ -522,6 +713,7 @@
       </section>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <div>
         <a class="brand footer-brand" href="#home">
@@ -533,8 +725,9 @@
         <h3>Collection</h3>
         <a href="#collection">Dining Suites</a>
         <a href="#collection">Sculptural Seating</a>
+        <a href="#visual-customizer">Live Customizer</a>
         <a href="#materiality">Material Library</a>
-        <a href="#estimator">Commission Estimator</a>
+        <a href="#trade">Trade Program</a>
       </div>
       <div>
         <h3>The House</h3>
@@ -588,6 +781,75 @@
         <a class="button button-gold dialog-whatsapp" href="https://wa.me/" target="_blank" rel="noopener">Enquire on WhatsApp <span>↗</span></a>
         <a class="button button-dark dialog-phone" href="tel:+18005550199" style="margin-top: 0.6rem;">Enquire by phone <span>↗</span></a>
       </div>
+    </dialog>
+
+    <!-- Consultation Booking Modal -->
+    <dialog class="booking-dialog" id="booking-dialog">
+      <button class="dialog-close" id="close-booking-btn" type="button" aria-label="Close modal">×</button>
+      <p class="kicker light">Private Commission Consultation</p>
+      <h3>Schedule with an Atelier Master</h3>
+      <p>Reserve a dedicated 20-minute design consultation to discuss space measurements, noble timber selections, and custom architectural sizing.</p>
+
+      <form id="booking-form">
+        <div class="booking-options">
+          <button class="booking-opt-btn active" type="button" data-type="Virtual Video Call">Virtual Video Call</button>
+          <button class="booking-opt-btn" type="button" data-type="Studio Atelier Visit">Studio Atelier</button>
+          <button class="booking-opt-btn" type="button" data-type="Site Residence Visit">Residence Visit</button>
+        </div>
+
+        <p style="font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold-light); margin-bottom: 0.6rem; font-weight: 600;">Available Time Slots (Tomorrow)</p>
+        <div class="time-slots">
+          <button class="slot-btn active" type="button">10:00 AM CET</button>
+          <button class="slot-btn" type="button">02:30 PM CET</button>
+          <button class="slot-btn" type="button">05:00 PM CET</button>
+        </div>
+
+        <div class="customizer-form" style="gap: 0.8rem;">
+          <label>
+            <span>Your Name</span>
+            <input name="bookName" placeholder="Full Name" required />
+          </label>
+          <label>
+            <span>Phone / WhatsApp</span>
+            <input name="bookPhone" placeholder="+1 (555) 000-0000" required />
+          </label>
+          <label>
+            <span>Project Scope / Space Notes</span>
+            <input name="bookNotes" placeholder="e.g. 10-seater dining room in London townhouse" />
+          </label>
+          <button class="button button-gold" type="submit" style="margin-top: 0.8rem; width: 100%;">Confirm Consultation <span>✓</span></button>
+        </div>
+        <div class="booking-status" id="booking-status">
+          ✓ Consultation Confirmed! An atelier concierge calendar invite has been sent.
+        </div>
+      </form>
+    </dialog>
+
+    <!-- Swatch Sample Box Modal -->
+    <dialog class="swatch-dialog" id="swatch-dialog">
+      <button class="dialog-close" id="close-swatch-btn" type="button" aria-label="Close modal">×</button>
+      <p class="kicker light">Trade & Private Client Samples</p>
+      <h3>Request Curated Swatch Box</h3>
+      <p>Receive our luxury presentation box featuring genuine oiled American walnut, smoked oak, Italian Roman travertine, natural cane, and Belgian bouclé swatches.</p>
+
+      <form id="swatch-form" class="customizer-form">
+        <label>
+          <span>Name or Architectural Practice</span>
+          <input name="swatchName" placeholder="Practice or Client Name" required />
+        </label>
+        <label>
+          <span>Delivery Address</span>
+          <input name="swatchAddress" placeholder="Street Address, City, Country" required />
+        </label>
+        <label>
+          <span>Contact Email / Phone</span>
+          <input name="swatchContact" placeholder="concierge@practice.com" required />
+        </label>
+        <button class="button button-gold" type="submit" style="margin-top: 0.8rem; width: 100%;">Dispatch Complimentary Box <span>📦</span></button>
+        <div class="booking-status" id="swatch-status">
+          ✓ Sample box registered for dispatch. Tracking details will be shared.
+        </div>
+      </form>
     </dialog>
 
     <!-- Floating Concierge & Live Client Personalizer Widget -->

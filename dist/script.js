@@ -118,17 +118,6 @@
     if (storyLead && config.storyLead) {
       storyLead.textContent = config.storyLead;
     }
-
-    // Optional: Instagram reels
-    const filmGrid = document.querySelector('#film-grid');
-    if (filmGrid && Array.isArray(config.reels) && config.reels.length > 0) {
-      filmGrid.innerHTML = config.reels
-        .map(
-          (url, idx) =>
-            `<iframe title="${config.brandName} workshop reel ${idx + 1}" src="${url}" loading="lazy" allowfullscreen></iframe>`
-        )
-        .join('');
-    }
   }
 
   applySiteConfig();
@@ -161,12 +150,6 @@
     })
   );
 
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
-      menuToggle.click();
-    }
-  });
-
   // --- 4. HERO ROOM VIEWS SWITCHER ---
   const roomButtons = document.querySelectorAll('.room-btn');
   const heroSlides = document.querySelectorAll('.hero-slide');
@@ -191,7 +174,6 @@
     });
   });
 
-  // Gentle auto-rotation
   const viewsList = ['dining', 'living', 'atelier'];
   heroTimer = setInterval(() => {
     currentSlideIdx = (currentSlideIdx + 1) % viewsList.length;
@@ -229,7 +211,103 @@
     })
   );
 
-  // --- 7. INTERACTIVE BESPOKE COMMISSION ESTIMATOR ---
+  // --- 7. LIVE VISUAL BESPOKE CUSTOMIZER ---
+  const customizerState = {
+    wood: 'American Black Walnut',
+    surface: 'Honed Roman Travertine',
+    upholstery: 'Ivory Belgian Bouclé',
+    price: '$5,400 – $7,200',
+    img: 'assets/ai/hero-dining.jpg'
+  };
+
+  const stageImg = document.querySelector('#stage-img');
+  const stagePriceVal = document.querySelector('#stage-price-val');
+  const cfgWood = document.querySelector('#cfg-wood');
+  const cfgSurface = document.querySelector('#cfg-surface');
+  const cfgUph = document.querySelector('#cfg-uph');
+  const customizerWaBtn = document.querySelector('#customizer-wa-btn');
+
+  function updateCustomizer() {
+    if (stageImg) stageImg.src = customizerState.img;
+    if (stagePriceVal) stagePriceVal.textContent = customizerState.price;
+    if (cfgWood) cfgWood.textContent = customizerState.wood;
+    if (cfgSurface) cfgSurface.textContent = customizerState.surface;
+    if (cfgUph) cfgUph.textContent = customizerState.upholstery;
+
+    if (customizerWaBtn) {
+      const waNumber = config.whatsappNumber || config.phoneTel.replace(/[^\d]/g, '');
+      const text = `Hi ${config.brandName}, I configured a custom dining commission:\n• Hardwood: ${customizerState.wood}\n• Surface: ${customizerState.surface}\n• Upholstery: ${customizerState.upholstery}\nEstimated guide: ${customizerState.price}.\nCould we discuss drawings and timeline?`;
+      customizerWaBtn.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+    }
+  }
+
+  document.querySelectorAll('.swatch-picker').forEach((picker) => {
+    picker.querySelectorAll('.swatch-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        picker.querySelectorAll('.swatch-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const param = picker.dataset.param;
+        customizerState[param] = btn.dataset.val;
+
+        if (btn.dataset.img) customizerState.img = btn.dataset.img;
+        if (btn.dataset.price) customizerState.price = btn.dataset.price;
+
+        updateCustomizer();
+      });
+    });
+  });
+
+  updateCustomizer();
+
+  // --- 8. BEFORE & AFTER TRANSFORMATION SLIDER ---
+  const sliderWrapper = document.querySelector('#before-after-slider');
+  if (sliderWrapper) {
+    const beforeImg = sliderWrapper.querySelector('.img-before');
+    const divider = sliderWrapper.querySelector('.slider-divider');
+    const handle = sliderWrapper.querySelector('.slider-handle-btn');
+    let isDragging = false;
+
+    function moveSlider(clientX) {
+      const rect = sliderWrapper.getBoundingClientRect();
+      let pos = (clientX - rect.left) / rect.width;
+      pos = Math.max(0.05, Math.min(0.95, pos));
+      const pct = pos * 100;
+      beforeImg.style.clipPath = `polygon(0 0, ${pct}% 0, ${pct}% 100%, 0 100%)`;
+      divider.style.left = `${pct}%`;
+      handle.style.left = `${pct}%`;
+    }
+
+    sliderWrapper.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      moveSlider(e.clientX);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      moveSlider(e.clientX);
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    sliderWrapper.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      moveSlider(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      moveSlider(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+  }
+
+  // --- 9. INTERACTIVE BESPOKE COMMISSION ESTIMATOR ---
   const estimatorState = {
     space: 'Dining Salon',
     material: 'American Black Walnut',
@@ -284,7 +362,7 @@
 
   updateEstimator();
 
-  // --- 8. PRODUCT SPECIFICATIONS & LIGHTBOX DIALOG ---
+  // --- 10. PRODUCT SPECIFICATIONS & LIGHTBOX DIALOG ---
   const products = {
     'signature-six': {
       title: 'The Signature Six',
@@ -383,7 +461,190 @@
   });
   dialog.addEventListener('close', () => lastTrigger?.focus());
 
-  // --- 9. MEMBERSHIP FORM ---
+  // --- 11. CONSULTATION BOOKING MODAL ---
+  const bookingDialog = document.querySelector('#booking-dialog');
+  const closeBookingBtn = document.querySelector('#close-booking-btn');
+  const bookingForm = document.querySelector('#booking-form');
+  const bookingStatus = document.querySelector('#booking-status');
+
+  const openBookingBtns = [
+    document.querySelector('#header-book-btn'),
+    document.querySelector('#hero-consult-btn'),
+    document.querySelector('#trade-cta-btn')
+  ].filter(Boolean);
+
+  openBookingBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (bookingDialog) bookingDialog.showModal();
+    });
+  });
+
+  if (closeBookingBtn && bookingDialog) {
+    closeBookingBtn.addEventListener('click', () => bookingDialog.close());
+    bookingDialog.addEventListener('click', (e) => {
+      const box = bookingDialog.getBoundingClientRect();
+      if (e.clientX < box.left || e.clientX > box.right || e.clientY < box.top || e.clientY > box.bottom) {
+        bookingDialog.close();
+      }
+    });
+
+    document.querySelectorAll('.booking-opt-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.booking-opt-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('.slot-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.slot-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = bookingForm.elements.bookName.value.trim();
+      const phone = bookingForm.elements.bookPhone.value.trim();
+      const notes = bookingForm.elements.bookNotes.value.trim();
+      const opt = document.querySelector('.booking-opt-btn.active')?.dataset.type || 'Virtual Consultation';
+      const slot = document.querySelector('.slot-btn.active')?.textContent || 'Tomorrow';
+
+      bookingStatus.textContent = `✓ Consultation Confirmed for ${name} (${opt} at ${slot}). An atelier concierge invitation has been prepared.`;
+      bookingStatus.classList.add('show');
+
+      setTimeout(() => {
+        const waNumber = config.whatsappNumber || config.phoneTel.replace(/[^\d]/g, '');
+        const waMsg = `Hi ${config.brandName}, I just scheduled an Atelier Consultation:\n• Client: ${name}\n• Contact: ${phone}\n• Format: ${opt} (${slot})\n• Notes: ${notes || 'None'}`;
+        window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(waMsg)}`, '_blank');
+      }, 1200);
+    });
+  }
+
+  // --- 12. SWATCH SAMPLE BOX MODAL ---
+  const swatchDialog = document.querySelector('#swatch-dialog');
+  const closeSwatchBtn = document.querySelector('#close-swatch-btn');
+  const swatchForm = document.querySelector('#swatch-form');
+  const swatchStatus = document.querySelector('#swatch-status');
+
+  const openSwatchBtns = [
+    document.querySelector('#hero-swatch-btn'),
+    document.querySelector('#trade-swatch-btn')
+  ].filter(Boolean);
+
+  openSwatchBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (swatchDialog) swatchDialog.showModal();
+    });
+  });
+
+  if (closeSwatchBtn && swatchDialog) {
+    closeSwatchBtn.addEventListener('click', () => swatchDialog.close());
+    swatchDialog.addEventListener('click', (e) => {
+      const box = swatchDialog.getBoundingClientRect();
+      if (e.clientX < box.left || e.clientX > box.right || e.clientY < box.top || e.clientY > box.bottom) {
+        swatchDialog.close();
+      }
+    });
+
+    swatchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      swatchStatus.classList.add('show');
+      setTimeout(() => {
+        swatchDialog.close();
+        swatchStatus.classList.remove('show');
+      }, 2400);
+    });
+  }
+
+  // Trade CAD Button
+  const tradeCadBtn = document.querySelector('#trade-cad-btn');
+  if (tradeCadBtn) {
+    tradeCadBtn.addEventListener('click', () => {
+      const waNumber = config.whatsappNumber || config.phoneTel.replace(/[^\d]/g, '');
+      const text = `Hi ${config.brandName}, I am an architect / interior designer requesting the complete 3D CAD & BIM model pack (Revit/SketchUp/Rhino) for client project renders.`;
+      window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`, '_blank');
+    });
+  }
+
+  const tradeJoinBtn = document.querySelector('#trade-join-btn');
+  if (tradeJoinBtn) {
+    tradeJoinBtn.addEventListener('click', () => {
+      if (swatchDialog) swatchDialog.showModal();
+    });
+  }
+
+  // --- 13. AMBIENT AUDIO ATMOSPHERE (WEB AUDIO SYNTHESIS) ---
+  const soundToggle = document.querySelector('#sound-toggle');
+  let audioCtx = null;
+  let isSoundPlaying = false;
+  let droneNodes = [];
+
+  function startAmbientAudio() {
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+      masterGain.connect(audioCtx.destination);
+
+      // Warm soothing chord frequencies (F# minor 9th ethereal atelier ambience)
+      const freqs = [92.5, 138.59, 185.0, 277.18, 329.63];
+
+      droneNodes = freqs.map((freq, i) => {
+        const osc = audioCtx.createOscillator();
+        const filter = audioCtx.createBiquadFilter();
+        const gain = audioCtx.createGain();
+
+        osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(450, audioCtx.currentTime);
+
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(masterGain);
+        osc.start();
+
+        return { osc, gain };
+      });
+
+      isSoundPlaying = true;
+      if (soundToggle) {
+        soundToggle.classList.add('playing');
+        soundToggle.querySelector('.sound-label').textContent = 'Sound: Active';
+      }
+    } catch (e) {
+      console.log('Audio init prevented:', e);
+    }
+  }
+
+  function stopAmbientAudio() {
+    if (audioCtx) {
+      audioCtx.close();
+      audioCtx = null;
+    }
+    droneNodes = [];
+    isSoundPlaying = false;
+    if (soundToggle) {
+      soundToggle.classList.remove('playing');
+      soundToggle.querySelector('.sound-label').textContent = 'Atelier Sound';
+    }
+  }
+
+  if (soundToggle) {
+    soundToggle.addEventListener('click', () => {
+      if (isSoundPlaying) {
+        stopAmbientAudio();
+      } else {
+        startAmbientAudio();
+      }
+    });
+  }
+
+  // --- 14. MEMBERSHIP FORM ---
   const membershipForm = document.querySelector('#membership-form');
   const membershipStatus = membershipForm.querySelector('.membership-status');
   membershipForm.addEventListener('submit', (event) => {
@@ -400,7 +661,7 @@
     membershipStatus.classList.add('show');
   });
 
-  // --- 10. LIVE CLIENT REBRAND MODAL (PITCH TOOL) ---
+  // --- 15. LIVE CLIENT REBRAND MODAL (PITCH TOOL) ---
   const customizerDialog = document.querySelector('#customizer-dialog');
   const openCustomizerBtn = document.querySelector('#open-customizer-btn');
   const closeCustomizerBtn = document.querySelector('#close-customizer-btn');
@@ -445,8 +706,8 @@
 
       applySiteConfig();
       updateEstimator();
+      updateCustomizer();
 
-      // Update URL without reload
       const url = new URL(window.location.href);
       url.searchParams.set('brand', config.brandName);
       if (newPhone) url.searchParams.set('phone', config.phoneDisplay);
@@ -475,7 +736,7 @@
     });
   }
 
-  // --- 11. FOOTER YEAR ---
+  // --- 16. FOOTER YEAR ---
   const yearEl = document.querySelector('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();

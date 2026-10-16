@@ -2034,3 +2034,590 @@ h1 em, h2 em {
     right: 1rem;
   }
 }
+
+/* ========================================================
+   PRESS & EDITORIAL VALIDATION STRIP
+   ======================================================== */
+.press-strip {
+  background: var(--ink);
+  color: var(--ivory);
+  padding: 3rem var(--gutter);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  text-align: center;
+}
+
+.press-quote {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 780px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.press-quote span {
+  color: var(--gold-light);
+  font-style: normal;
+  font-size: 0.8em;
+  display: block;
+  margin-top: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: var(--sans);
+}
+
+.press-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  flex-wrap: wrap;
+  opacity: 0.65;
+  transition: opacity 0.3s;
+}
+
+.press-logos:hover {
+  opacity: 0.95;
+}
+
+.press-logo {
+  font-family: var(--serif);
+  font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+/* ========================================================
+   LIVE VISUAL BESPOKE CUSTOMIZER
+   ======================================================== */
+.visual-customizer-sec {
+  background: #151512;
+  color: var(--ivory);
+  position: relative;
+  overflow: hidden;
+}
+
+.customizer-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.customizer-stage {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 16/10;
+  background: #0d0d0b;
+}
+
+.customizer-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease, transform 0.6s ease;
+}
+
+.stage-badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 99px;
+  background: rgba(18, 18, 15, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.stage-price {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius-sm);
+  background: rgba(18, 18, 15, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+}
+
+.stage-price span {
+  font-size: 0.52rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.stage-price strong {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  font-weight: 400;
+}
+
+.customizer-panel {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: clamp(1.8rem, 3.5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  backdrop-filter: blur(16px);
+}
+
+.config-group h4 {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin: 0 0 0.8rem;
+  font-weight: 700;
+}
+
+.swatch-picker {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.swatch-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.95rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-sm);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.swatch-btn.active, .swatch-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--gold);
+  color: white;
+}
+
+.swatch-btn span.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.config-specs-box {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+}
+
+.config-specs-box div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.config-specs-box span {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.config-specs-box strong {
+  color: var(--gold-light);
+}
+
+/* ========================================================
+   BEFORE & AFTER ARCHITECTURAL TRANSFORMATION SLIDER
+   ======================================================== */
+.transformation-sec {
+  background: var(--ivory);
+}
+
+.slider-wrapper {
+  position: relative;
+  width: min(1120px, 100%);
+  height: clamp(380px, 46vw, 620px);
+  margin: 2.5rem auto 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+  user-select: none;
+  cursor: ew-resize;
+}
+
+.slider-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.slider-img.img-before {
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.slider-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.slider-handle-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--gold-light);
+  border: 2px solid white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.slider-caption {
+  position: absolute;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  background: rgba(18, 18, 15, 0.7);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  bottom: 1.5rem;
+}
+
+.slider-caption.cap-left {
+  left: 1.5rem;
+}
+.slider-caption.cap-right {
+  right: 1.5rem;
+}
+
+/* ========================================================
+   TRADE, ARCHITECTS & DESIGNERS PROGRAM
+   ======================================================== */
+.trade-sec {
+  background: var(--pearl);
+}
+
+.trade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.trade-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 290px;
+  transition: all 0.3s;
+}
+
+.trade-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+  border-color: var(--gold);
+}
+
+.trade-icon {
+  font-size: 1.8rem;
+  color: var(--gold-dark);
+}
+
+.trade-card h3 {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  margin: 1.2rem 0 0.6rem;
+  font-weight: 400;
+}
+
+.trade-card p {
+  font-size: 0.84rem;
+  color: #636159;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.trade-cta-banner {
+  margin-top: 3.5rem;
+  background: var(--ink);
+  color: white;
+  border-radius: var(--radius-sm);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.trade-cta-banner h3 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  margin: 0;
+}
+
+.trade-cta-banner h3 em {
+  color: var(--gold-light);
+}
+
+/* ========================================================
+   PRIVATE CONSULTATION BOOKING MODAL
+   ======================================================== */
+.booking-dialog {
+  border: 0;
+  border-radius: var(--radius-md);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  width: min(560px, 94vw);
+  background: #161614;
+  color: white;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.booking-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.booking-dialog h3 {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem;
+  font-weight: 400;
+}
+
+.booking-dialog p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 1.8rem;
+  line-height: 1.5;
+}
+
+.booking-options {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.booking-opt-btn {
+  flex: 1;
+  padding: 0.75rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.booking-opt-btn.active, .booking-opt-btn:hover {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.slot-btn {
+  padding: 0.6rem 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.slot-btn.active, .slot-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--gold-light);
+}
+
+.booking-status {
+  padding: 0.9rem;
+  border-radius: var(--radius-sm);
+  background: rgba(52, 211, 153, 0.15);
+  border: 1px solid #34d399;
+  color: #34d399;
+  font-size: 0.78rem;
+  margin-top: 1rem;
+  display: none;
+}
+
+.booking-status.show {
+  display: block;
+}
+
+/* ========================================================
+   SWATCH SAMPLE BOX MODAL
+   ======================================================== */
+.swatch-dialog {
+  border: 0;
+  border-radius: var(--radius-md);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  width: min(580px, 94vw);
+  background: #171714;
+  color: white;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.swatch-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.swatch-dialog h3 {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem;
+  font-weight: 400;
+}
+
+.swatch-dialog p {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin: 0 0 1.5rem;
+}
+
+/* ========================================================
+   AMBIENT AUDIO ATMOSPHERE TOGGLE
+   ======================================================== */
+.sound-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.site-header.scrolled .sound-toggle-btn {
+  background: rgba(25, 25, 22, 0.06);
+  border-color: rgba(25, 25, 22, 0.15);
+  color: var(--ink);
+}
+
+.sound-toggle-btn.playing {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.sound-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.sound-bars span {
+  width: 2px;
+  background: currentColor;
+  height: 3px;
+  border-radius: 1px;
+  transition: height 0.2s;
+}
+
+.sound-toggle-btn.playing .sound-bars span:nth-child(1) { animation: barPlay 0.8s ease-in-out infinite alternate; }
+.sound-toggle-btn.playing .sound-bars span:nth-child(2) { animation: barPlay 1.2s ease-in-out infinite alternate 0.2s; }
+.sound-toggle-btn.playing .sound-bars span:nth-child(3) { animation: barPlay 0.6s ease-in-out infinite alternate 0.4s; }
+
+@keyframes barPlay {
+  0% { height: 3px; }
+  100% { height: 12px; }
+}
+
+/* Responsive updates for new sections */
+@media (max-width: 1050px) {
+  .customizer-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .trade-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .trade-grid {
+    grid-template-columns: 1fr;
+  }
+  .trade-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .press-logos {
+    gap: 1.5rem;
+  }
+  .slider-wrapper {
+    height: 320px;
+  }
+  .time-slots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
