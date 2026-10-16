@@ -188,35 +188,35 @@
   const products = {
     'signature-six': {
       title: 'The Signature Six',
-      image: 'assets/instagram/07-dining-photo.jpg',
+      image: 'assets/ai/hero-dining.jpg',
       alt: 'Premium six-seater dining set',
       copy: 'A six-seater statement dining suite with sculpted high-back chairs and a solid stone-finish tabletop.',
       source: '#contact'
     },
     'cane-curve': {
       title: 'The Cane Curve',
-      image: 'assets/instagram/02-bedroom-chair.jpg',
+      image: 'assets/ai/cane-chair.jpg',
       alt: 'Curved cane-back wooden chair',
       copy: 'An expressive steam-bent timber frame paired with intricately hand-woven natural cane weave.',
       source: '#contact'
     },
     'carved-table': {
       title: 'The Carved Table',
-      image: 'assets/instagram/10-wooden-dining-set.jpg',
+      image: 'assets/ai/carved-dining.jpg',
       alt: 'Carved wooden dining set',
       copy: 'A richly detailed artisanal dining table paired with custom upholstered high-back seating.',
       source: '#contact'
     },
     'sculpted-chair': {
       title: 'The Sculpted Chair',
-      image: 'assets/instagram/04-dining-set.jpg',
+      image: 'assets/ai/sculpted-chair.jpg',
       alt: 'Sculpted wooden dining chair in progress',
       copy: 'Fluid architectural geometry sculpted in solid timber before final upholstery and hand finishing.',
       source: '#contact'
     },
     'hand-finished': {
       title: 'Made by Hand',
-      image: 'assets/instagram/11-dining-furniture.jpg',
+      image: 'assets/ai/hand-craft.jpg',
       alt: 'Furniture being finished by hand',
       copy: 'Every contour, joint, and surface receives hand-burnished finishing inside our atelier workshop.',
       source: '#contact'
