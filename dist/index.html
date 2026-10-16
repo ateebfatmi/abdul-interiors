@@ -21,24 +21,28 @@
 
     <header class="site-header" id="site-header">
       <a class="brand" href="#home" aria-label="Atelier Interiors home">
-        <span class="brand-primary">ATELIER</span><small class="brand-secondary">INTERIORS</small>
+        <span class="brand-primary">ATELIER</span>
+        <span class="brand-secondary">INTERIORS</span>
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#collection">Collection</a>
         <a href="#visual-customizer">Customizer</a>
         <a href="#materiality">Materiality</a>
         <a href="#transformation">Transformation</a>
-        <a href="#trade">Trade & Architects</a>
+        <a href="#trade">Trade</a>
         <a href="#estimator">Bespoke</a>
       </nav>
       <div class="header-actions-wrap">
-        <button class="sound-toggle-btn" id="sound-toggle" type="button" aria-label="Toggle Atelier Soundscape">
+        <div class="header-badge"><span class="pulse-dot"></span> Commissions Open</div>
+        <button class="sound-toggle-btn" id="sound-toggle" type="button" aria-label="Toggle Atelier Soundscape" title="Toggle gentle atelier ambient sound">
           <div class="sound-bars"><span></span><span></span><span></span></div>
-          <span class="sound-label">Atelier Sound</span>
+          <span class="sound-label">Sound</span>
         </button>
-        <button class="button button-gold" id="header-book-btn" type="button" style="padding: 0.6rem 1.1rem; min-height: 42px; font-size: 0.58rem;">Book Consultation</button>
+        <button class="header-book-btn" id="header-book-btn" type="button">Book Consultation <span>↗</span></button>
       </div>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span><span></span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
         <a href="#collection">Collection</a>
         <a href="#visual-customizer">Live Customizer</a>
@@ -848,41 +852,6 @@
         <button class="button button-gold" type="submit" style="margin-top: 0.8rem; width: 100%;">Dispatch Complimentary Box <span>📦</span></button>
         <div class="booking-status" id="swatch-status">
           ✓ Sample box registered for dispatch. Tracking details will be shared.
-        </div>
-      </form>
-    </dialog>
-
-    <!-- Floating Concierge & Live Client Personalizer Widget -->
-    <div class="floating-widget">
-      <button class="floating-pill" id="open-customizer-btn" type="button" aria-label="Open Client Personalizer">
-        <span class="gold-dot"></span>
-        <span>Personalize Demo ✦</span>
-      </button>
-    </div>
-
-    <!-- Live Client Customizer Dialog -->
-    <dialog class="demo-customizer-dialog" id="customizer-dialog">
-      <button class="dialog-close" id="close-customizer-btn" type="button" aria-label="Close modal">×</button>
-      <p class="kicker light">Instant Client Pitch Tool</p>
-      <h3>Personalize this Site</h3>
-      <p>Type any prospective client's business name and contact info to test instant live rebranding:</p>
-      
-      <form class="customizer-form" id="customizer-form">
-        <label>
-          <span>Client Studio / Brand Name</span>
-          <input name="clientBrand" placeholder="e.g. Royale Interiors or Luxe Atelier" required />
-        </label>
-        <label>
-          <span>Phone / Contact Number</span>
-          <input name="clientPhone" placeholder="+1 (800) 555-0199" />
-        </label>
-        <label>
-          <span>Instagram Handle</span>
-          <input name="clientIg" placeholder="@client.interiors" />
-        </label>
-        <div class="customizer-actions">
-          <button class="button button-gold" type="submit" style="flex: 1;">Apply Rebrand <span>✓</span></button>
-          <button class="button button-dark" id="copy-client-url-btn" type="button">Copy Client Link <span>📋</span></button>
         </div>
       </form>
     </dialog>
