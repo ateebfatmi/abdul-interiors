@@ -1,4 +1,4 @@
-# Atelier — Luxury Interior & Bespoke Furniture Showcase
+# Atelier & Abdul Interiors — Luxury Interior & Bespoke Furniture Showcase
 
 A high-performance, mobile-optimized showcase template designed for bespoke interior designers, furniture ateliers, and luxury architectural studios.
 
@@ -6,51 +6,42 @@ A high-performance, mobile-optimized showcase template designed for bespoke inte
 
 ---
 
-## ⚡ Instant Client Sharing & Live Personalization
+## ⚡ Client Presentation & In-Person Pitch Features
+
+The website includes built-in presentation controls specifically engineered for live client meetings:
+
+1. **Dual Built-in Profiles**:
+   - **Abdul Interiors**: Crafted for Mohd Imran (Saharanpur & Delhi NCR, +91 90129 30381, @abdulinteriors21, with prices in **₹ INR**).
+   - **Atelier Interiors**: International luxury studio profile (worldwide white-glove, prices in **$ USD**).
+2. **Instant Preset & Pitch Switcher**:
+   - Trigger via keyboard shortcut: **`Alt + P`** (or **`Cmd/Ctrl + K`**), or via the footer link **`⚡ Client Switcher & Pitch Settings`**.
+   - Switch presets with 1 click, or rebrand live on the fly with any custom client name, phone number, and currency.
+3. **Live Multi-Currency Toggle**:
+   - Tap the currency toggle in the navbar or mobile menu to flip between **₹ INR** and **$ USD**.
+   - Automatically recalibrates all product tags, the bespoke customizer, and the commission estimator in real time.
+4. **Interactive Materiality Deep-Dive**:
+   - Click any noble material (American Walnut, Honed Roman Travertine, Woven Cane, Smoked Oak, Bouclé, Patina Brass) to inspect Janka hardness, origin, finishing method, and care guidelines.
+5. **Private Consultation Scheduler with `.ics` Calendar Export**:
+   - When a client books a consultation, the site automatically generates and downloads a standard **`.ics` calendar invite** directly into Apple Calendar, Google Calendar, or Outlook, with a parallel WhatsApp handoff.
+6. **Mobile Sticky Action Bar**:
+   - When showing the website on an iPhone or Android phone, a high-contrast dark frosted glass sticky bottom bar provides instant access to `Customizer`, `WhatsApp`, and `Call`.
+
+---
+
+## 🔗 Instant Personalized Links
 
 You can share this showcase with **any client** immediately. The site supports instant personalization directly via URL query parameters without editing any code:
 
-### Example Personalized Links:
-- **Custom Brand:**
-  `https://ateebfatmi.github.io/demo/?brand=Luxe+Living`
-- **Brand + Contact Details:**
-  `https://ateebfatmi.github.io/demo/?brand=Studio+Verve&phone=%2B91%2098765%2043210&ig=@studioverve`
-- **Full Override:**
-  `https://ateebfatmi.github.io/demo/?brand=Aura+Interiors&phone=%2B1%20(800)%20555-0199&ig=@aurainteriors&email=concierge@aurainteriors.com`
+### Example Links:
+- **Abdul Interiors Profile (INR ₹):**
+  `https://ateebfatmi.github.io/demo/?client=abdul`
+- **Atelier International Profile (USD $):**
+  `https://ateebfatmi.github.io/demo/?client=atelier`
+- **Custom Brand + Phone:**
+  `https://ateebfatmi.github.io/demo/?brand=Royal+Woods&phone=%2B91%2098765%2043210&cur=INR`
 
 ---
 
 ## 🛠 Permanent Client Configuration
 
-To permanently configure the site for a specific client, simply edit [`dist/config.js`](dist/config.js):
-
-```javascript
-window.SITE_CONFIG = {
-  brandName: "Your Client Name",
-  brandLogoMain: "YOUR",
-  brandLogoSub: "STUDIO",
-  tagline: "Furniture of Distinction",
-  phoneDisplay: "+1 (800) 555-0199",
-  phoneTel: "+18005550199",
-  email: "concierge@client.com",
-  instagramHandle: "@clienthandle",
-  instagramUrl: "https://instagram.com/clienthandle/",
-  reels: [],
-};
-```
-
----
-
-## ✨ Client-Acquisition Features
-
-- **100% White-Label & Generic**: Zero hardcoded artisan names or personal numbers; completely bespoke for any client brand.
-- **AI-Generated Architectural Visuals**: 8 bespoke, ultra-luxury editorial interior renders (dining salons, lounge chairs, craft details).
-- **Interactive Room View Switcher**: Dynamic hero preview allowing clients to toggle between salon viewpoints with mood and specification tags.
-- **Interactive Materiality Gallery**: Clients can inspect sustainably harvested French Oak, Carrara Marble, Bouclé Wool, and Burnished Brass.
-- **Before & After Transformation Slider**: Interactive comparison slider demonstrating bespoke spatial renovations from raw shell to finished architectural atelier.
-- **Live 3D-Style Customizer**: Interactive bespoke furniture configurator for real-time timber, upholstery, and metal accent pairing with instant quotation estimates.
-- **Trade & Architecture Portal**: Dedicated sample swatch box request dialog for interior designers, architects, and hospitality developers.
-- **Private Consultation Booking**: Calendar date/time/service booking scheduler with instant WhatsApp/Email concierge handoff.
-- **Web Audio Ambient Soundscape**: Subtle, relaxing atelier workshop soundscape toggle for an immersive showroom experience.
-- **Refined Architectural Navbar**: High-contrast dark frosted glass navigation bar with direct consultation CTA.
-- **Ultra-Responsive**: Fast static delivery, 0 heavy frameworks, zero layout shift, and smooth iOS/Android native feel.
+To configure the site defaults, simply edit [`dist/config.js`](dist/config.js).
