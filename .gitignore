@@ -1,4 +1,4 @@
 .DS_Store
-components/
-lib/
 node_modules/
+.next/
+dist/.DS_Store

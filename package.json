@@ -1,0 +1,45 @@
+{
+  "name": "abdul-interiors-site",
+  "version": "1.0.0",
+  "description": "A high-performance, mobile-optimized showcase template designed for bespoke interior designers, furniture ateliers, and luxury architectural studios.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ateebfatmi/demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ateebfatmi/demo/issues"
+  },
+  "homepage": "https://github.com/ateebfatmi/demo#readme",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^14.3.0",
+    "lucide-react": "^1.59.0",
+    "next": "^16.4.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.1",
+    "postcss": "^8.5.30",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  }
+}

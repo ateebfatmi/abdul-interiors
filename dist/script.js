@@ -1251,4 +1251,50 @@
   // ========================================================
   const yearEl = document.querySelector('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // ========================================================
+  // 19. TUBELIGHT NAVBAR ACTIVE STATE & SCROLLSPY
+  // ========================================================
+  const tubelightLinks = document.querySelectorAll('.desktop-nav a');
+  if (tubelightLinks.length) {
+    function setTubelightActive(targetLink) {
+      tubelightLinks.forEach((link) => link.classList.remove('active'));
+      if (targetLink) targetLink.classList.add('active');
+    }
+
+    tubelightLinks[0]?.classList.add('active');
+
+    tubelightLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        setTubelightActive(link);
+      });
+    });
+
+    const tubelightSections = Array.from(tubelightLinks)
+      .map((link) => {
+        const href = link.getAttribute('href');
+        return href && href.startsWith('#') ? document.querySelector(href) : null;
+      })
+      .filter(Boolean);
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        const scrollPos = window.scrollY + 220;
+        for (let i = tubelightSections.length - 1; i >= 0; i--) {
+          const section = tubelightSections[i];
+          if (section && section.offsetTop <= scrollPos) {
+            const id = '#' + section.id;
+            const matchingLink = Array.from(tubelightLinks).find((l) => l.getAttribute('href') === id);
+            if (matchingLink) {
+              setTubelightActive(matchingLink);
+              break;
+            }
+          }
+        }
+      },
+      { passive: true }
+    );
+  }
 })();
+
