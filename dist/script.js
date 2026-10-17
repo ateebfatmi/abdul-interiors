@@ -392,10 +392,28 @@
   // ========================================================
   const filters = document.querySelectorAll('.filter');
   const productCards = document.querySelectorAll('.product-card');
+  const productGrid = document.querySelector('.product-grid');
+  const catalogToggleBtn = document.querySelector('#catalog-toggle-btn');
+
+  if (catalogToggleBtn && productGrid) {
+    catalogToggleBtn.addEventListener('click', () => {
+      const isExpanded = productGrid.classList.toggle('show-all');
+      catalogToggleBtn.innerHTML = isExpanded
+        ? 'Show Key Highlights <span>↑</span>'
+        : 'View All 9 Pieces <span>↓</span>';
+      if (isExpanded) {
+        productGrid.querySelectorAll('.extra-card').forEach((el) => el.classList.add('visible'));
+      }
+    });
+  }
 
   filters.forEach((button) =>
     button.addEventListener('click', () => {
       const filter = button.dataset.filter;
+      if (productGrid && filter !== 'all') {
+        productGrid.classList.add('show-all');
+        if (catalogToggleBtn) catalogToggleBtn.innerHTML = 'Show Key Highlights <span>↑</span>';
+      }
       filters.forEach((item) => {
         const active = item === button;
         item.classList.toggle('active', active);
@@ -404,6 +422,7 @@
       productCards.forEach((card) => {
         const match = filter === 'all' || card.dataset.category === filter;
         card.hidden = !match;
+        if (match) card.classList.add('visible');
       });
     })
   );

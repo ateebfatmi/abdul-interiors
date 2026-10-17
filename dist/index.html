@@ -12,9 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261017_tubelight_v6" />
+    <link rel="stylesheet" href="styles.css?v=compact_v2" />
     <script src="config.js" defer></script>
-    <script src="script.js?v=20261017_fix_reveal" defer></script>
+    <script src="script.js?v=compact_v2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -110,48 +110,40 @@
         <a class="scroll-mark" href="#collection"><span></span>Scroll to discover</a>
       </section>
 
-      <!-- Provenance Metrics Strip -->
-      <section class="provenance-strip" aria-label="Studio highlights">
-        <div class="provenance-item">
-          <span class="provenance-num">100%</span>
-          <span class="provenance-label">Bespoke Commissions</span>
-          <p class="provenance-desc">Proportions, timber grain, and stone finishes customized to your architectural space.</p>
+      <!-- Trust & Provenance Strip -->
+      <section class="trust-strip" aria-label="Studio highlights & recognition">
+        <div class="provenance-grid">
+          <div class="provenance-item">
+            <span class="provenance-num">100%</span>
+            <span class="provenance-label">Bespoke Commissions</span>
+            <p class="provenance-desc">Proportions, timber grain, and stone finishes customized to your space.</p>
+          </div>
+          <div class="provenance-item">
+            <span class="provenance-num">Heritage</span>
+            <span class="provenance-label">Traditional Joinery</span>
+            <p class="provenance-desc">Hand-carved mortise, tenon, and steam-bent curves made to endure generations.</p>
+          </div>
+          <div class="provenance-item">
+            <span class="provenance-num">4–7 Wks</span>
+            <span class="provenance-label">Meticulous Handcraft</span>
+            <p class="provenance-desc">Individually fabricated inside our studio with natural hand-rubbed oil finishes.</p>
+          </div>
+          <div class="provenance-item">
+            <span class="provenance-num">White-Glove</span>
+            <span class="provenance-label">Pan-India & Global Delivery</span>
+            <p class="provenance-desc">Dedicated custom crating and architectural installation worldwide.</p>
+          </div>
         </div>
-        <div class="provenance-item">
-          <span class="provenance-num">Heritage</span>
-          <span class="provenance-label">Traditional Joinery</span>
-          <p class="provenance-desc">Hand-carved mortise, tenon, and steam-bent curves made to endure generations.</p>
+        <div class="press-sub-strip">
+          <span class="press-label">Featured In:</span>
+          <div class="press-logos">
+            <span class="press-logo">Architectural Digest</span>
+            <span class="press-logo">Elle Décor</span>
+            <span class="press-logo">Wallpaper*</span>
+            <span class="press-logo">Vogue Living</span>
+            <span class="press-logo">Dezeen</span>
+          </div>
         </div>
-        <div class="provenance-item">
-          <span class="provenance-num">4–7 Wks</span>
-          <span class="provenance-label">Meticulous Handcraft</span>
-          <p class="provenance-desc">Individually fabricated inside our studio with natural hand-rubbed oil finishes.</p>
-        </div>
-        <div class="provenance-item">
-          <span class="provenance-num">White-Glove</span>
-          <span class="provenance-label">Pan-India & Global Delivery</span>
-          <p class="provenance-desc">Dedicated custom crating and architectural installation for residences worldwide.</p>
-        </div>
-      </section>
-
-      <!-- Press & Editorial Recognition -->
-      <section class="press-strip" aria-label="Press recognition">
-        <p class="press-quote">
-          “Redefining contemporary collectible furniture through monumental scale, tactile stone plinths, and ancient hand-joinery traditions.”
-          <span>Featured in Architectural Design Reviews</span>
-        </p>
-        <div class="press-logos">
-          <span class="press-logo">Architectural Digest</span>
-          <span class="press-logo">Elle Décor</span>
-          <span class="press-logo">Wallpaper*</span>
-          <span class="press-logo">Vogue Living</span>
-          <span class="press-logo">Dezeen</span>
-        </div>
-      </section>
-
-      <!-- Marquee -->
-      <section class="marquee" aria-label="Brand values">
-        <div>SOLID WALNUT <i>✦</i> HONED TRAVERTINE <i>✦</i> HAND-WOVEN CANE <i>✦</i> BESPOKE ARCHITECTURE <i>✦</i> NATURAL OIL FINISH <i>✦</i> PRIVATE COMMISSIONS <i>✦</i> SOLID WALNUT <i>✦</i> HONED TRAVERTINE</div>
       </section>
 
       <!-- Collection Section -->
@@ -242,7 +234,7 @@
           </article>
 
           <!-- 05. Monolith Salon (Living - Span 4) -->
-          <article class="product-card reveal" data-category="living">
+          <article class="product-card extra-card reveal" data-category="living">
             <button class="product-image" type="button" data-open-product="monolith-salon">
               <img src="assets/images/hero-living.webp" alt="Architectural curved sofa and stone table in living salon" />
               <span class="glass-tag">Living Salon · Bouclé</span>
@@ -259,7 +251,7 @@
           </article>
 
           <!-- 06. Carved Pedestal Table (Dining - Span 4) -->
-          <article class="product-card reveal" data-category="dining">
+          <article class="product-card extra-card reveal" data-category="dining">
             <button class="product-image" type="button" data-open-product="carved-table">
               <img src="assets/ai/carved-dining.jpg" alt="Carved wooden dining set with fluted pedestal" />
               <span class="glass-tag">Statement Dining</span>
@@ -276,7 +268,7 @@
           </article>
 
           <!-- 07. Heritage Chairs (Seating / Workshop - Span 4) -->
-          <article class="product-card reveal" data-category="workshop">
+          <article class="product-card extra-card reveal" data-category="workshop">
             <button class="product-image" type="button" data-open-product="artisan-chairs">
               <img src="assets/instagram/01-wooden-chairs.jpg" alt="Pair of artisanal solid wood chairs with carved backs" />
               <span class="glass-tag">Traditional Joinery</span>
@@ -293,7 +285,7 @@
           </article>
 
           <!-- 08. Master Sanctuary Bedstead (Living & Bedroom - Wide Span 8) -->
-          <article class="product-card product-wide reveal" data-category="living">
+          <article class="product-card product-wide extra-card reveal" data-category="living">
             <button class="product-image" type="button" data-open-product="sanctuary-bed">
               <img src="assets/images/bedroom.webp" alt="Bespoke upholstered luxury king bedstead" />
               <span class="glass-tag">Master Suite · Bedstead</span>
@@ -310,7 +302,7 @@
           </article>
 
           <!-- 09. Made by Hand (Workshop Study - Span 4) -->
-          <article class="product-card reveal" data-category="workshop">
+          <article class="product-card extra-card reveal" data-category="workshop">
             <button class="product-image" type="button" data-open-product="hand-finished">
               <img src="assets/ai/hand-craft.jpg" alt="Master craftsperson hand-finishing furniture with oil" />
               <span class="glass-tag">Workshop Detail</span>
@@ -325,6 +317,12 @@
               <button type="button" data-open-product="hand-finished">View Specification</button>
             </div>
           </article>
+        </div>
+
+        <div class="collection-toggle-wrap">
+          <button class="button button-dark" id="catalog-toggle-btn" type="button">
+            View All 9 Pieces <span>↓</span>
+          </button>
         </div>
       </section>
 
