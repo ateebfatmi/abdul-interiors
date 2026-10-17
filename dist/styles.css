@@ -98,23 +98,24 @@ button, input, select, textarea {
   position: fixed;
   z-index: 100;
   inset: 0 0 auto;
-  height: 90px;
+  height: 84px;
   padding: 0 var(--gutter);
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #ffffff;
-  background: transparent;
-  pointer-events: none;
+  background: rgba(14, 14, 12, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.site-header > * {
-  pointer-events: auto;
-}
-
 .site-header.scrolled {
-  height: 80px;
+  height: 72px;
+  background: rgba(10, 10, 8, 0.96);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.25);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
 }
 
 .brand {
@@ -123,18 +124,11 @@ button, input, select, textarea {
   width: max-content;
   text-decoration: none;
   line-height: 1;
-  background: rgba(14, 14, 12, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 0.6rem 1.25rem;
-  border-radius: 9999px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .brand .brand-primary {
   font-family: var(--serif);
-  font-size: 1.35rem;
+  font-size: 1.65rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   color: #ffffff;
@@ -143,68 +137,65 @@ button, input, select, textarea {
 
 .brand .brand-secondary {
   font-family: var(--sans);
-  font-size: 0.48rem;
+  font-size: 0.52rem;
   font-weight: 700;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.42em;
   color: var(--gold);
   text-transform: uppercase;
-  margin-top: 0.2rem;
+  margin-top: 0.25rem;
 }
 
 .brand:hover .brand-primary {
   color: var(--gold-light);
 }
 
-/* Iconic Tubelight Navbar (Centered Floating Pill) */
+/* ========================================================
+   TUBELIGHT NAVBAR (Frosted Glass Pill with Lamp Glow)
+   ======================================================== */
 .desktop-nav {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 0.35rem;
-  background: rgba(18, 18, 16, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 5px 8px;
   border-radius: 9999px;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
-  z-index: 10;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 
 .desktop-nav a {
+  position: relative;
+  cursor: pointer;
   font-family: var(--sans);
   font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.72);
-  position: relative;
-  padding: 0.55rem 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.5rem 1.15rem;
   border-radius: 9999px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.78);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .desktop-nav a:hover {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.07);
 }
 
 .desktop-nav a.active {
+  background: rgba(255, 255, 255, 0.12);
   color: var(--gold-light);
-  background: rgba(212, 175, 55, 0.14);
 }
 
-/* Tubelight lamp bar with bright multi-layer blur glow */
+/* Tubelight Lamp Bar */
 .desktop-nav a.active::before {
   content: '';
   position: absolute;
-  top: -7px;
+  top: -2px;
   left: 50%;
   transform: translateX(-50%);
   width: 32px;
@@ -212,10 +203,28 @@ button, input, select, textarea {
   background: var(--gold);
   border-radius: 9999px 9999px 0 0;
   box-shadow:
-    0 -2px 10px rgba(212, 175, 55, 0.9),
-    0 -4px 18px 4px rgba(212, 175, 55, 0.6),
-    0 2px 14px 2px rgba(212, 175, 55, 0.4);
+    0 -1px 8px rgba(212, 175, 55, 0.9),
+    0 -3px 14px 2px rgba(212, 175, 55, 0.6),
+    0 1px 6px rgba(212, 175, 55, 0.4);
+  z-index: 2;
   animation: tubelightPulse 3s ease-in-out infinite alternate;
+}
+
+/* Tubelight Lamp Ambient Halo Glow */
+.desktop-nav a.active::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 24px;
+  background: rgba(212, 175, 55, 0.28);
+  border-radius: 9999px;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  pointer-events: none;
+  z-index: 1;
 }
 
 @keyframes tubelightPulse {
@@ -232,14 +241,8 @@ button, input, select, textarea {
 .header-actions-wrap {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  background: rgba(14, 14, 12, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 0.4rem 0.6rem;
-  border-radius: 9999px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  justify-self: end;
+  gap: 1rem;
 }
 
 .header-badge {
