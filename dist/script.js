@@ -57,6 +57,22 @@
   
   let currentConfig = Object.assign({}, presets[currentKey] || presets.abdul, window.SITE_CONFIG || {});
 
+  const customizerState = {
+    wood: 'American Black Walnut',
+    surface: 'Honed Roman Travertine',
+    upholstery: 'Ivory Belgian Bouclé',
+    woodTier: 'base',
+    surfaceCost: 'travertine',
+    uphCost: 'boucle',
+    img: 'assets/ai/hero-dining.jpg'
+  };
+
+  const estimatorState = {
+    space: 'Dining Salon',
+    material: 'American Black Walnut',
+    scale: 'Grand (6–8 Seats)'
+  };
+
   // URL Query Parameter Overrides
   const brandParam = params.get('brand') || params.get('name');
   if (brandParam) applyBrandName(brandParam);
@@ -140,8 +156,12 @@
       if (priceText) badge.textContent = priceText;
     });
 
-    updateCustomizer();
-    updateEstimator();
+    try {
+      if (typeof updateCustomizer === 'function') updateCustomizer();
+    } catch (_) {}
+    try {
+      if (typeof updateEstimator === 'function') updateEstimator();
+    } catch (_) {}
   }
 
   function toggleCurrency() {
@@ -353,9 +373,19 @@
         }
       });
     },
-    { threshold: 0.08 }
+    { threshold: 0.04, rootMargin: '0px 0px 120px 0px' }
   );
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+  // If page loaded with anchor (e.g. #collection), reveal immediately
+  if (window.location.hash) {
+    try {
+      const targetSection = document.querySelector(window.location.hash);
+      if (targetSection) {
+        targetSection.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+      }
+    } catch (_) {}
+  }
 
   // ========================================================
   // 7. COLLECTION FILTERS & PRODUCT GALLERY
@@ -543,16 +573,6 @@
   // ========================================================
   // 9. LIVE VISUAL BESPOKE CUSTOMIZER
   // ========================================================
-  const customizerState = {
-    wood: 'American Black Walnut',
-    surface: 'Honed Roman Travertine',
-    upholstery: 'Ivory Belgian Bouclé',
-    woodTier: 'base',
-    surfaceCost: 'travertine',
-    uphCost: 'boucle',
-    img: 'assets/ai/hero-dining.jpg'
-  };
-
   const stageImg = document.querySelector('#stage-img');
   const stagePriceVal = document.querySelector('#stage-price-val');
   const cfgWood = document.querySelector('#cfg-wood');
@@ -677,12 +697,6 @@
   // ========================================================
   // 11. BESPOKE COMMISSION ESTIMATOR
   // ========================================================
-  const estimatorState = {
-    space: 'Dining Salon',
-    material: 'American Black Walnut',
-    scale: 'Grand (6–8 Seats)'
-  };
-
   const summaryTitle = document.querySelector('#summary-title');
   const summaryDesc = document.querySelector('#summary-desc');
   const specSpace = document.querySelector('#spec-space');
